@@ -1,8 +1,8 @@
-import { generateToken } from '../jwt-generator';
 import fetch, { Headers, RequestInit, Response } from 'node-fetch';
-import { BASE_URL, USER_AGENT } from '../constants';
 import { RequestOptions } from './types/request-types';
 import { handleException } from './errors';
+import { BASE_URL, USER_AGENT } from '../constants';
+import { generateToken } from '../jwt-generator';
 
 export class RESTBase {
   private apiKey: string | undefined;
