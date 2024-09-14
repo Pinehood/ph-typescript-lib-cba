@@ -21,8 +21,6 @@ import {
   PreviewOrderResponse,
 } from './types/orders-types';
 
-// [POST] Create Order
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_postorder
 export function createOrder(
   this: RESTBase,
   requestParams: CreateOrderRequest
@@ -35,8 +33,6 @@ export function createOrder(
   });
 }
 
-// [POST] Cancel Orders
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_cancelorders
 export function cancelOrders(
   this: RESTBase,
   requestParams: CancelOrdersRequest
@@ -49,8 +45,6 @@ export function cancelOrders(
   });
 }
 
-// [POST] Edit Order
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_editorder
 export function editOrder(
   this: RESTBase,
   requestParams: EditOrderRequest
@@ -63,8 +57,6 @@ export function editOrder(
   });
 }
 
-// [POST] Edit Order Preview
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_previeweditorder
 export function editOrderPreview(
   this: RESTBase,
   requestParams: EditOrderPreviewRequest
@@ -77,8 +69,6 @@ export function editOrderPreview(
   });
 }
 
-// [GET] List Orders
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_gethistoricalorders
 export function listOrders(
   this: RESTBase,
   requestParams: ListOrdersRequest
@@ -91,8 +81,6 @@ export function listOrders(
   });
 }
 
-// [GET] List Fills
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getfills
 export function listFills(
   this: RESTBase,
   requestParams: ListFillsRequest
@@ -105,8 +93,6 @@ export function listFills(
   });
 }
 
-// [GET] Get Order
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_gethistoricalorder
 export function getOrder(
   this: RESTBase,
   { orderId }: GetOrderRequest
@@ -118,8 +104,6 @@ export function getOrder(
   });
 }
 
-// [POST] Preview Order
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_previeworder
 export function previewOrder(
   this: RESTBase,
   requestParams: PreviewOrderRequest
@@ -132,8 +116,6 @@ export function previewOrder(
   });
 }
 
-// [POST] Close Position
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_closeposition
 export function closePosition(
   this: RESTBase,
   requestParams: ClosePositionRequest

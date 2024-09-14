@@ -1,5 +1,4 @@
 import {
-  Balance,
   PerpetualPortfolio,
   PortfolioBalance,
   PortfolioSummary,
@@ -7,9 +6,7 @@ import {
   PositionSummary,
 } from './common-types';
 
-// Allocate Portfolio
 export type AllocatePortfolioRequest = {
-  // Body Params
   portfolioUuid: string;
   symbol: string;
   amount: string;
@@ -18,9 +15,7 @@ export type AllocatePortfolioRequest = {
 
 export type AllocatePortfolioResponse = Record<string, never>;
 
-// Get Perpetuals Portfolio Summary
 export type GetPerpetualsPortfolioSummaryRequest = {
-  // Path Params
   portfolioUuid: string;
 };
 
@@ -29,9 +24,7 @@ export type GetPerpetualsPortfolioSummaryResponse = {
   summary?: PortfolioSummary;
 };
 
-// List Perpetuals Positions
 export type ListPerpetualsPositionsRequest = {
-  // Path Params
   portfolioUuid: string;
 };
 
@@ -40,9 +33,7 @@ export type ListPerpetualsPositionsResponse = {
   summary?: PositionSummary;
 };
 
-// Get Perpetuals Position
 export type GetPerpetualsPositionRequest = {
-  // Path Params
   portfolioUuid: string;
   symbol: string;
 };
@@ -51,9 +42,7 @@ export type GetPerpetualsPositionResponse = {
   position?: Position;
 };
 
-// Get Portfolio Balances
 export type GetPortfolioBalancesRequest = {
-  // Path Params
   portfolioUuid: string;
 };
 
@@ -61,9 +50,7 @@ export type GetPortfolioBalancesResponse = {
   portfolio_balancces?: PortfolioBalance[];
 };
 
-// Opt In or Out of Multi Asset Collateral
 export type OptInOutMultiAssetCollateralRequest = {
-  // Body Params
   portfolioUuid?: string;
   multiAssetCollateralEnabled?: boolean;
 };

@@ -16,8 +16,6 @@ import {
   SetIntradayMarginSettingResponse,
 } from './types/futures-types';
 
-// [GET] Get Futures Balance Summary
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getfcmbalancesummary
 export function getFuturesBalanceSummary(
   this: RESTBase
 ): Promise<GetFuturesBalanceSummaryResponse> {
@@ -28,8 +26,6 @@ export function getFuturesBalanceSummary(
   });
 }
 
-// [GET] Get Intraday Margin Setting
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getintradaymarginsetting
 export function getIntradayMarginSetting(
   this: RESTBase
 ): Promise<GetIntradayMarginSettingResponse> {
@@ -40,8 +36,6 @@ export function getIntradayMarginSetting(
   });
 }
 
-// [POST] Set Intraday Margin Setting
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_setintradaymarginsetting
 export function setIntradayMarginSetting(
   this: RESTBase,
   requestParams: SetIntradayMarginSettingRequest
@@ -54,8 +48,6 @@ export function setIntradayMarginSetting(
   });
 }
 
-// [GET] Get Current Margin Window
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getcurrentmarginwindow
 export function getCurrentMarginWindow(
   this: RESTBase,
   requestParams: GetCurrentMarginWindowRequest
@@ -68,8 +60,6 @@ export function getCurrentMarginWindow(
   });
 }
 
-// [GET] List Futures Positions
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getfcmpositions
 export function listFuturesPositions(
   this: RESTBase
 ): Promise<ListFuturesPositionsResponse> {
@@ -80,8 +70,6 @@ export function listFuturesPositions(
   });
 }
 
-// [GET] Get Futures Position
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getfcmposition
 export function getFuturesPosition(
   this: RESTBase,
   { productId }: GetFuturesPositionRequest
@@ -93,8 +81,6 @@ export function getFuturesPosition(
   });
 }
 
-// [POST] Schedule Futures Sweep
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_schedulefcmsweep
 export function scheduleFuturesSweep(
   this: RESTBase,
   requestParams: ScheduleFuturesSweepRequest
@@ -107,8 +93,6 @@ export function scheduleFuturesSweep(
   });
 }
 
-// [GET] List Futures Sweeps
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getfcmsweeps
 export function listFuturesSweeps(
   this: RESTBase
 ): Promise<ListFuturesSweepsResponse> {
@@ -119,8 +103,6 @@ export function listFuturesSweeps(
   });
 }
 
-// [DELETE] Cancel Pending Futures Sweep
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_cancelfcmsweep
 export function cancelPendingFuturesSweep(
   this: RESTBase
 ): Promise<CancelPendingFuturesSweep> {

@@ -7,8 +7,6 @@ import {
   ListAccountsResponse,
 } from './types/accounts-types';
 
-// [GET] Get Account
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getaccount
 export function getAccount(
   this: RESTBase,
   { accountUuid }: GetAccountRequest
@@ -20,8 +18,6 @@ export function getAccount(
   });
 }
 
-// List Accounts
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getaccounts
 export function listAccounts(
   this: RESTBase,
   requestParams: ListAccountsRequest

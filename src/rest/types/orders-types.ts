@@ -10,9 +10,7 @@ import {
   SortBy,
 } from './common-types';
 
-// Create Order
 export type CreateOrderRequest = {
-  // Body Params
   clientOrderId: string;
   productId: string;
   side: OrderSide;
@@ -25,17 +23,15 @@ export type CreateOrderRequest = {
 
 export type CreateOrderResponse = {
   success: boolean;
-  failure_reason?: Record<string, any>; // deprecated
-  order_id?: string; // deprecated
+  failure_reason?: Record<string, any>;
+  order_id?: string;
   response?:
     | { success_response: Record<string, any> }
     | { error_response: Record<string, any> };
   order_configuration?: OrderConfiguration;
 };
 
-// Cancel Orders
 export type CancelOrdersRequest = {
-  // Body Params
   orderIds: string[];
 };
 
@@ -43,9 +39,7 @@ export type CancelOrdersResponse = {
   results?: CancelOrderObject[];
 };
 
-// Edit Order
 export type EditOrderRequest = {
-  // Body Params
   orderId: string;
   price?: string;
   size?: string;
@@ -54,14 +48,12 @@ export type EditOrderRequest = {
 export type EditOrderResponse = {
   success: boolean;
   response?:
-    | { success_response: Record<string, any> } // deprecated
-    | { error_response: Record<string, any> }; // deprecated
+    | { success_response: Record<string, any> }
+    | { error_response: Record<string, any> };
   errors?: Record<string, any>[];
 };
 
-// Edit Order Preview
 export type EditOrderPreviewRequest = {
-  // Body Params
   orderId: string;
   price?: string;
   size?: string;
@@ -78,9 +70,7 @@ export type EditOrderPreviewResponse = {
   average_filled_price?: string;
 };
 
-// List Orders
 export type ListOrdersRequest = {
-  // Query Params
   orderIds?: string[];
   productIds?: string[];
   orderStatus?: string[];
@@ -101,14 +91,12 @@ export type ListOrdersRequest = {
 
 export type ListOrdersResponse = {
   orders: Order[];
-  sequence?: number; // deprecated
+  sequence?: number;
   has_next: boolean;
   cursor?: string;
 };
 
-// List Fills
 export type ListFillsRequest = {
-  // Query Params
   orderIds?: string[];
   tradeIds?: string[];
   productIds?: string[];
@@ -125,9 +113,7 @@ export type ListFillsResponse = {
   cursor?: string;
 };
 
-// Get Order
 export type GetOrderRequest = {
-  // Path Params
   orderId: string;
 };
 
@@ -135,9 +121,7 @@ export type GetOrderResponse = {
   order?: Order;
 };
 
-// Preview Order
 export type PreviewOrderRequest = {
-  // Body Params
   productId: string;
   side: OrderSide;
   orderConfiguration: OrderConfiguration;
@@ -168,9 +152,7 @@ export type PreviewOrderResponse = {
   pnl_configuration?: Record<string, any>;
 };
 
-// Close Position
 export type ClosePositionRequest = {
-  // Body Params
   clientOrderId: string;
   productId: string;
   size?: string;

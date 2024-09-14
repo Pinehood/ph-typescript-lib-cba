@@ -1,4 +1,3 @@
-// ----- ENUMS -----
 export enum ProductType {
   UNKNOWN = 'UNKNOWN_PRODUCT_TYPE',
   SPOT = 'SPOT',
@@ -77,7 +76,6 @@ export enum IntradayMarginSetting {
   INTRADAY = 'INTRADAY_MARGIN_SETTING_INTRADAY',
 }
 
-// ----- TYPES -----
 export type Account = {
   uuid?: string;
   name?: string;

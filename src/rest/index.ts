@@ -17,19 +17,15 @@ export class RESTClient extends RESTBase {
     super(key, secret);
   }
 
-  // =============== ACCOUNTS endpoints ===============
   public getAccount = Accounts.getAccount.bind(this);
   public listAccounts = Accounts.listAccounts.bind(this);
 
-  // =============== CONVERTS endpoints ===============
   public createConvertQuote = Converts.createConvertQuote.bind(this);
   public commitConvertTrade = Converts.commitConvertTrade.bind(this);
   public getConvertTrade = Converts.getConvertTrade.bind(this);
 
-  // =============== FEES endpoints ===============
   public getTransactionSummary = Fees.getTransactionSummary.bind(this);
 
-  // =============== FUTURES endpoints ===============
   public getFuturesBalanceSummary = Futures.getFuturesBalanceSummary.bind(this);
   public getIntradayMarginSetting = Futures.getIntradayMarginSetting.bind(this);
   public setIntradayMarginSetting = Futures.setIntradayMarginSetting.bind(this);
@@ -41,7 +37,6 @@ export class RESTClient extends RESTBase {
   public cancelPendingFuturesSweep =
     Futures.cancelPendingFuturesSweep.bind(this);
 
-  // =============== ORDERS endpoints ===============
   public createOrder = Orders.createOrder.bind(this);
   public cancelOrders = Orders.cancelOrders.bind(this);
   public editOrder = Orders.editOrder.bind(this);
@@ -52,11 +47,9 @@ export class RESTClient extends RESTBase {
   public previewOrder = Orders.previewOrder.bind(this);
   public closePosition = Orders.closePosition.bind(this);
 
-  // =============== PAYMENTS endpoints ===============
   public listPaymentMethods = Payments.listPaymentMethods.bind(this);
   public getPaymentMethod = Payments.getPaymentMethod.bind(this);
 
-  // =============== PERPETUALS endpoints ===============
   public allocatePortfolio = Perpetuals.allocatePortfolio.bind(this);
   public getPerpetualsPortfolioSummary =
     Perpetuals.getPerpetualsPortfolioSummary.bind(this);
@@ -67,7 +60,6 @@ export class RESTClient extends RESTBase {
   public optInOutMultiAssetCollateral =
     Perpetuals.optInOutMultiAssetCollateral.bind(this);
 
-  // =============== PORTFOLIOS endpoints ===============
   public listPortfolios = Portfolios.listPortfolios.bind(this);
   public createPortfolio = Portfolios.createPortfolio.bind(this);
   public deletePortfolio = Portfolios.deletePortfolio.bind(this);
@@ -75,7 +67,6 @@ export class RESTClient extends RESTBase {
   public movePortfolioFunds = Portfolios.movePortfolioFunds.bind(this);
   public getPortfolioBreakdown = Portfolios.getPortfolioBreakdown.bind(this);
 
-  // =============== PRODUCTS endpoints ===============
   public getBestBidAsk = Products.getBestBidAsk.bind(this);
   public getProductBook = Products.getProductBook.bind(this);
   public listProducts = Products.listProducts.bind(this);
@@ -83,7 +74,6 @@ export class RESTClient extends RESTBase {
   public getProductCandles = Products.getProductCandles.bind(this);
   public getMarketTrades = Products.getMarketTrades.bind(this);
 
-  // =============== PUBLIC endpoints ===============
   public getServerTime = Public.getServerTime.bind(this);
   public getPublicProductBook = Public.getPublicProductBook.bind(this);
   public listPublicProducts = Public.listPublicProducts.bind(this);

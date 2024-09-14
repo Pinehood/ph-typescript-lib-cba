@@ -9,8 +9,6 @@ import {
   GetConvertTradeResponse,
 } from './types/converts-types';
 
-// [POST] Create Convert Quote
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_createconvertquote
 export function createConvertQuote(
   this: RESTBase,
   requestParams: CreateConvertQuoteRequest
@@ -23,8 +21,6 @@ export function createConvertQuote(
   });
 }
 
-// [GET] Get Convert Trade
-// Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getconverttrade
 export function getConvertTrade(
   this: RESTBase,
   { tradeId, ...requestParams }: GetConvertTradeRequest
@@ -37,8 +33,6 @@ export function getConvertTrade(
   });
 }
 
-// [POST] Commit Connvert Trade
-// https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_commitconverttrade
 export function commitConvertTrade(
   this: RESTBase,
   { tradeId, ...requestParams }: CommitConvertTradeRequest
