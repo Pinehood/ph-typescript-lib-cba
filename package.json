@@ -10,7 +10,7 @@
     "dotenv": "^16.4.5",
     "jsonwebtoken": "^9.0.2",
     "node-fetch": "^3.3.2",
-    "ph-typescript-lib-cba": "file:"
+    "ph-typescript-lib-cba": "1.0.2"
   },
   "devDependencies": {
     "@types/node-fetch": "^2.6.11",
