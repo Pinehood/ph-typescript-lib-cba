@@ -47,7 +47,6 @@ export type GetPublicProductResponse = {
   body?: Product;
 };
 
-//Get Public Product Candles
 export type GetPublicProductCandlesRequest = {
   productId: string;
 

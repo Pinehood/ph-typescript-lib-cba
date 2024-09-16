@@ -1,6 +1,0 @@
-- Replace "node-fetch" with "axios" latest version
-- Make types better and more full, if needed and possible
-- Do not use "bind" for functions that produce no signature and any return
-- Create specific classes/modules for each of the endpoint type
-- Try updating dependencies to latest
-- Create a README.md

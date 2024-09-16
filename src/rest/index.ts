@@ -11,73 +11,105 @@ import * as Perpetuals from './perpetuals';
 import * as Portfolios from './portfolios';
 import * as Products from './products';
 import * as Public from './public';
+import * as FT from './types/function-types';
 
 export class RESTClient extends RESTBase {
   constructor(key?: string | undefined, secret?: string | undefined) {
     super(key, secret);
   }
 
-  public getAccount = Accounts.getAccount.bind(this);
-  public listAccounts = Accounts.listAccounts.bind(this);
+  public getAccount: FT.TGetAccount = Accounts.getAccount.bind(this);
+  public listAccounts: FT.TListAccounts = Accounts.listAccounts.bind(this);
 
-  public createConvertQuote = Converts.createConvertQuote.bind(this);
-  public commitConvertTrade = Converts.commitConvertTrade.bind(this);
-  public getConvertTrade = Converts.getConvertTrade.bind(this);
+  public createConvertQuote: FT.TCreateConvertQuote =
+    Converts.createConvertQuote.bind(this);
+  public commitConvertTrade: FT.TCommitConvertTrade =
+    Converts.commitConvertTrade.bind(this);
+  public getConvertTrade: FT.TGetConvertTrade =
+    Converts.getConvertTrade.bind(this);
 
-  public getTransactionSummary = Fees.getTransactionSummary.bind(this);
+  public getTransactionSummary: FT.TGetTransactionSummary =
+    Fees.getTransactionSummary.bind(this);
 
-  public getFuturesBalanceSummary = Futures.getFuturesBalanceSummary.bind(this);
-  public getIntradayMarginSetting = Futures.getIntradayMarginSetting.bind(this);
-  public setIntradayMarginSetting = Futures.setIntradayMarginSetting.bind(this);
-  public getCurrentMarginWindow = Futures.getCurrentMarginWindow.bind(this);
-  public listFuturesPositions = Futures.listFuturesPositions.bind(this);
-  public getFuturesPosition = Futures.getFuturesPosition.bind(this);
-  public scheduleFuturesSweep = Futures.scheduleFuturesSweep.bind(this);
-  public listFuturesSweeps = Futures.listFuturesSweeps.bind(this);
-  public cancelPendingFuturesSweep =
+  public getFuturesBalanceSummary: FT.TGetFuturesBalanceSummary =
+    Futures.getFuturesBalanceSummary.bind(this);
+  public getIntradayMarginSetting: FT.TGetIntradayMarginSetting =
+    Futures.getIntradayMarginSetting.bind(this);
+  public setIntradayMarginSetting: FT.TSetIntradayMarginSetting =
+    Futures.setIntradayMarginSetting.bind(this);
+  public getCurrentMarginWindow: FT.TGetCurrentMarginWindow =
+    Futures.getCurrentMarginWindow.bind(this);
+  public listFuturesPositions: FT.TListFuturesPositions =
+    Futures.listFuturesPositions.bind(this);
+  public getFuturesPosition: FT.TGetFuturesPosition =
+    Futures.getFuturesPosition.bind(this);
+  public scheduleFuturesSweep: FT.TScheduleFuturesSweep =
+    Futures.scheduleFuturesSweep.bind(this);
+  public listFuturesSweeps: FT.TListFuturesSweeps =
+    Futures.listFuturesSweeps.bind(this);
+  public cancelPendingFuturesSweep: FT.TCancelPendingFuturesSweep =
     Futures.cancelPendingFuturesSweep.bind(this);
 
-  public createOrder = Orders.createOrder.bind(this);
-  public cancelOrders = Orders.cancelOrders.bind(this);
-  public editOrder = Orders.editOrder.bind(this);
-  public editOrderPreview = Orders.editOrderPreview.bind(this);
-  public listOrders = Orders.listOrders.bind(this);
-  public listFills = Orders.listFills.bind(this);
-  public getOrder = Orders.getOrder.bind(this);
-  public previewOrder = Orders.previewOrder.bind(this);
-  public closePosition = Orders.closePosition.bind(this);
+  public createOrder: FT.TCreateOrder = Orders.createOrder.bind(this);
+  public cancelOrders: FT.TCancelOrders = Orders.cancelOrders.bind(this);
+  public editOrder: FT.TEditOrder = Orders.editOrder.bind(this);
+  public editOrderPreview: FT.TEditOrderPreview =
+    Orders.editOrderPreview.bind(this);
+  public listOrders: FT.TListOrders = Orders.listOrders.bind(this);
+  public listFills: FT.TListFills = Orders.listFills.bind(this);
+  public getOrder: FT.TGetOrder = Orders.getOrder.bind(this);
+  public previewOrder: FT.TPreviewOrder = Orders.previewOrder.bind(this);
+  public closePosition: FT.TClosePosition = Orders.closePosition.bind(this);
 
-  public listPaymentMethods = Payments.listPaymentMethods.bind(this);
-  public getPaymentMethod = Payments.getPaymentMethod.bind(this);
+  public listPaymentMethods: FT.TListPaymentMethods =
+    Payments.listPaymentMethods.bind(this);
+  public getPaymentMethod: FT.TGetPaymentMethod =
+    Payments.getPaymentMethod.bind(this);
 
-  public allocatePortfolio = Perpetuals.allocatePortfolio.bind(this);
-  public getPerpetualsPortfolioSummary =
+  public allocatePortfolio: FT.TAllocatePortfolio =
+    Perpetuals.allocatePortfolio.bind(this);
+  public getPerpetualsPortfolioSummary: FT.TGetPerpetualsPortfolioSummary =
     Perpetuals.getPerpetualsPortfolioSummary.bind(this);
-  public listPerpetualsPositions =
+  public listPerpetualsPositions: FT.TListPerpetualsPositions =
     Perpetuals.listPerpetualsPositions.bind(this);
-  public getPerpetualsPosition = Perpetuals.getPerpertualsPosition.bind(this);
-  public getPortfolioBalances = Perpetuals.getPortfolioBalances.bind(this);
-  public optInOutMultiAssetCollateral =
+  public getPerpetualsPosition: FT.TGetPerpetualsPosition =
+    Perpetuals.getPerpertualsPosition.bind(this);
+  public getPortfolioBalances: FT.TGetPortfolioBalances =
+    Perpetuals.getPortfolioBalances.bind(this);
+  public optInOutMultiAssetCollateral: FT.TOptInOutMultiAssetCollateral =
     Perpetuals.optInOutMultiAssetCollateral.bind(this);
 
-  public listPortfolios = Portfolios.listPortfolios.bind(this);
-  public createPortfolio = Portfolios.createPortfolio.bind(this);
-  public deletePortfolio = Portfolios.deletePortfolio.bind(this);
-  public editPortfolio = Portfolios.editPortfolio.bind(this);
-  public movePortfolioFunds = Portfolios.movePortfolioFunds.bind(this);
-  public getPortfolioBreakdown = Portfolios.getPortfolioBreakdown.bind(this);
+  public listPortfolios: FT.TListPortfolios =
+    Portfolios.listPortfolios.bind(this);
+  public createPortfolio: FT.TCreatePortfolio =
+    Portfolios.createPortfolio.bind(this);
+  public deletePortfolio: FT.TDeletePortfolio =
+    Portfolios.deletePortfolio.bind(this);
+  public editPortfolio: FT.TEditPortfolio = Portfolios.editPortfolio.bind(this);
+  public movePortfolioFunds: FT.TMovePortfolioFunds =
+    Portfolios.movePortfolioFunds.bind(this);
+  public getPortfolioBreakdown: FT.TGetPortfolioBreakdown =
+    Portfolios.getPortfolioBreakdown.bind(this);
 
-  public getBestBidAsk = Products.getBestBidAsk.bind(this);
-  public getProductBook = Products.getProductBook.bind(this);
-  public listProducts = Products.listProducts.bind(this);
-  public getProduct = Products.getProduct.bind(this);
-  public getProductCandles = Products.getProductCandles.bind(this);
-  public getMarketTrades = Products.getMarketTrades.bind(this);
+  public getBestBidAsk: FT.TGetBestBidAsk = Products.getBestBidAsk.bind(this);
+  public getProductBook: FT.TGetProductBook =
+    Products.getProductBook.bind(this);
+  public listProducts: FT.TListProducts = Products.listProducts.bind(this);
+  public getProduct: FT.TGetProduct = Products.getProduct.bind(this);
+  public getProductCandles: FT.TGetProductCandles =
+    Products.getProductCandles.bind(this);
+  public getMarketTrades: FT.TGetMarketTrades =
+    Products.getMarketTrades.bind(this);
 
-  public getServerTime = Public.getServerTime.bind(this);
-  public getPublicProductBook = Public.getPublicProductBook.bind(this);
-  public listPublicProducts = Public.listPublicProducts.bind(this);
-  public getPublicProduct = Public.getPublicProduct.bind(this);
-  public getPublicProductCandles = Public.getPublicProductCandles.bind(this);
-  public getPublicMarketTrades = Public.getPublicMarketTrades.bind(this);
+  public getServerTime: FT.TGetServerTime = Public.getServerTime.bind(this);
+  public getPublicProductBook: FT.TGetPublicProductBook =
+    Public.getPublicProductBook.bind(this);
+  public listPublicProducts: FT.TListPublicProducts =
+    Public.listPublicProducts.bind(this);
+  public getPublicProduct: FT.TGetPublicProduct =
+    Public.getPublicProduct.bind(this);
+  public getPublicProductCandles: FT.TGetPublicProductCandles =
+    Public.getPublicProductCandles.bind(this);
+  public getPublicMarketTrades: FT.TGetPublicMarketTrades =
+    Public.getPublicMarketTrades.bind(this);
 }
