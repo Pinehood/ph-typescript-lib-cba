@@ -45,7 +45,7 @@ export class RESTBase {
     const response: Response = await fetch(url, requestOptions);
     const responseText = await response.text();
     handleException(response, responseText, response.statusText);
-    return responseText;
+    return JSON.parse(responseText);
   }
 
   private headers(httpMethod: string, urlPath: string, isPublic?: boolean) {

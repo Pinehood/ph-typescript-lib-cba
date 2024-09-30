@@ -29,7 +29,6 @@ export type MovePortfolioFundsResponse = {
 
 export type GetPortfolioBreakdownRequest = {
   portfolioUuid: string;
-
   currency?: string;
 };
 
@@ -45,7 +44,6 @@ export type DeletePortfolioResponse = Record<string, never>;
 
 export type EditPortfolioRequest = {
   portfolioUuid: string;
-
   name: string;
 };
 

@@ -39,36 +39,21 @@ export type ListProductsRequest = {
   getAllProducts?: boolean;
 };
 
-export type ListProductsResponse = {
-  body?: Products;
-};
-
 export type GetProductRequest = {
   productId: string;
-
   getTradabilityStatus?: boolean;
-};
-
-export type GetProductResponse = {
-  body?: Product;
 };
 
 export type GetProductCandlesRequest = {
   productId: string;
-
   start: string;
   end: string;
   granularity: Granularity;
   limit?: number;
 };
 
-export type GetProductCandlesResponse = {
-  body?: Candles;
-};
-
 export type GetMarketTradesRequest = {
   productId: string;
-
   limit: number;
   start?: string;
   end?: string;

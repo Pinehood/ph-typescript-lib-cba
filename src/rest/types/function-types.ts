@@ -120,15 +120,15 @@ export type TGetProductBook = (
 ) => Promise<Types.GetProductBookResponse>;
 export type TListProducts = (
   requestParams: Types.ListProductsRequest
-) => Promise<Types.ListProductsResponse>;
+) => Promise<Types.Products>;
 export type TGetProduct = ({
   productId,
   ...requestParams
-}: Types.GetProductRequest) => Promise<Types.GetProductResponse>;
+}: Types.GetProductRequest) => Promise<Types.Product>;
 export type TGetProductCandles = ({
   productId,
   ...requestParams
-}: Types.GetProductCandlesRequest) => Promise<Types.GetProductCandlesResponse>;
+}: Types.GetProductCandlesRequest) => Promise<Types.Candles>;
 export type TGetMarketTrades = ({
   productId,
   ...requestParams
@@ -139,14 +139,14 @@ export type TGetPublicProductBook = (
 ) => Promise<Types.GetPublicProductBookResponse>;
 export type TListPublicProducts = (
   requestParams: Types.ListPublicProductsRequest
-) => Promise<Types.ListPublicProductsResponse>;
+) => Promise<Types.Products>;
 export type TGetPublicProduct = ({
   productId,
-}: Types.GetPublicProductRequest) => Promise<Types.GetPublicProductResponse>;
+}: Types.GetPublicProductRequest) => Promise<Types.Product>;
 export type TGetPublicProductCandles = ({
   productId,
   ...requestParams
-}: Types.GetPublicProductCandlesRequest) => Promise<Types.GetPublicProductCandlesResponse>;
+}: Types.GetPublicProductCandlesRequest) => Promise<Types.Candles>;
 export type TGetPublicMarketTrades = ({
   productId,
   ...requestParams

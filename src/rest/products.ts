@@ -1,5 +1,6 @@
 import { API_PREFIX } from '../constants';
 import { RESTBase } from './rest-base';
+import { Candles, Product, Products } from './types';
 import {
   GetBestBidAskRequest,
   GetBestBidAskResponse,
@@ -8,11 +9,8 @@ import {
   GetProductBookRequest,
   GetProductBookResponse,
   GetProductCandlesRequest,
-  GetProductCandlesResponse,
   GetProductRequest,
-  GetProductResponse,
   ListProductsRequest,
-  ListProductsResponse,
 } from './types/products-types';
 
 export function getBestBidAsk(
@@ -42,7 +40,7 @@ export function getProductBook(
 export function listProducts(
   this: RESTBase,
   requestParams: ListProductsRequest
-): Promise<ListProductsResponse> {
+): Promise<Products> {
   return this.request({
     method: 'GET',
     endpoint: `${API_PREFIX}/products`,
@@ -54,7 +52,7 @@ export function listProducts(
 export function getProduct(
   this: RESTBase,
   { productId, ...requestParams }: GetProductRequest
-): Promise<GetProductResponse> {
+): Promise<Product> {
   return this.request({
     method: 'GET',
     endpoint: `${API_PREFIX}/products/${productId}`,
@@ -66,7 +64,7 @@ export function getProduct(
 export function getProductCandles(
   this: RESTBase,
   { productId, ...requestParams }: GetProductCandlesRequest
-): Promise<GetProductCandlesResponse> {
+): Promise<Candles> {
   return this.request({
     method: 'GET',
     endpoint: `${API_PREFIX}/products/${productId}/candles`,

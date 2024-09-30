@@ -35,34 +35,20 @@ export type ListPublicProductsRequest = {
   getAllProducts?: boolean;
 };
 
-export type ListPublicProductsResponse = {
-  body?: Products;
-};
-
 export type GetPublicProductRequest = {
   productId: string;
 };
 
-export type GetPublicProductResponse = {
-  body?: Product;
-};
-
 export type GetPublicProductCandlesRequest = {
   productId: string;
-
   start: string;
   end: string;
   granularity: string;
   limit?: number;
 };
 
-export type GetPublicProductCandlesResponse = {
-  body?: Candles;
-};
-
 export type GetPublicMarketTradesRequest = {
   productId: string;
-
   limit: number;
   start?: string;
   end?: string;

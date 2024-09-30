@@ -1,17 +1,15 @@
 import { API_PREFIX } from '../constants';
 import { RESTBase } from './rest-base';
+import { Candles, Product, Products } from './types';
 import {
   GetPublicMarketTradesRequest,
   GetPublicMarketTradesResponse,
   GetPublicProductBookRequest,
   GetPublicProductBookResponse,
   GetPublicProductCandlesRequest,
-  GetPublicProductCandlesResponse,
   GetPublicProductRequest,
-  GetPublicProductResponse,
   GetServerTimeResponse,
   ListPublicProductsRequest,
-  ListPublicProductsResponse,
 } from './types/public-types';
 
 export function getServerTime(this: RESTBase): Promise<GetServerTimeResponse> {
@@ -37,7 +35,7 @@ export function getPublicProductBook(
 export function listPublicProducts(
   this: RESTBase,
   requestParams: ListPublicProductsRequest
-): Promise<ListPublicProductsResponse> {
+): Promise<Products> {
   return this.request({
     method: 'GET',
     endpoint: `${API_PREFIX}/market/products`,
@@ -49,7 +47,7 @@ export function listPublicProducts(
 export function getPublicProduct(
   this: RESTBase,
   { productId }: GetPublicProductRequest
-): Promise<GetPublicProductResponse> {
+): Promise<Product> {
   return this.request({
     method: 'GET',
     endpoint: `${API_PREFIX}/market/products/${productId}`,
@@ -60,7 +58,7 @@ export function getPublicProduct(
 export function getPublicProductCandles(
   this: RESTBase,
   { productId, ...requestParams }: GetPublicProductCandlesRequest
-): Promise<GetPublicProductCandlesResponse> {
+): Promise<Candles> {
   return this.request({
     method: 'GET',
     endpoint: `${API_PREFIX}/market/products/${productId}/candles`,
