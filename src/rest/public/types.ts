@@ -1,11 +1,8 @@
 import {
-  Candles,
   ContractExpiryType,
   ExpiringContractStatus,
   HistoricalMarketTrade,
   PriceBook,
-  Product,
-  Products,
   ProductType,
 } from '../types';
 

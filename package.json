@@ -3,6 +3,7 @@
   "version": "1.0.9",
   "scripts": {
     "lint": "eslint \"./src/**/*.ts\"",
+    "prettier": "npx prettier --write \"src/**/*.ts\"",
     "build": "npx tsc"
   },
   "dependencies": {

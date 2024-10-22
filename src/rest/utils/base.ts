@@ -31,14 +31,14 @@ export class RESTBase {
     isPublic?: boolean
   ) {
     const headers = this.headers(httpMethod, urlPath, isPublic);
+    const queryString = this.query(queryParams);
+    const url = `https://${BASE_URL}${urlPath}${queryString}`;
     const requestOptions: AxiosRequestConfig = {
       method: httpMethod,
       headers: headers,
       data: JSON.stringify(bodyParams),
-      url: urlPath,
+      url,
     };
-    const queryString = this.query(queryParams);
-    const url = `https://${BASE_URL}${urlPath}${queryString}`;
     return this.send(requestOptions);
   }
 
