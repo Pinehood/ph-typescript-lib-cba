@@ -1,6 +1,6 @@
 import axios, { AxiosHeaders, AxiosRequestConfig } from 'axios';
 import { BASE_URL, USER_AGENT } from './constants';
-import { token } from './jwt-generator';
+import { token } from './token';
 import { RequestOptions } from '../types/request';
 import { handleException } from './errors';
 

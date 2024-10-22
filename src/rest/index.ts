@@ -1,5 +1,3 @@
-export * from './types';
-
 import { RESTBase } from './utils';
 import { AccountsAPI } from './accounts';
 import { ConvertsAPI } from './converts';
