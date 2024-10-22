@@ -1,4 +1,4 @@
-import { ContractExpiryType, ProductType, ProductVenue } from './common-types';
+import { ContractExpiryType, ProductType, ProductVenue } from '../types';
 
 export type GetTransactionsSummaryRequest = {
   productType?: ProductType;

@@ -4,7 +4,7 @@ import {
   PortfolioSummary,
   Position,
   PositionSummary,
-} from './common-types';
+} from '../types';
 
 export type AllocatePortfolioRequest = {
   portfolioUuid: string;

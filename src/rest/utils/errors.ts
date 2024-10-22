@@ -1,10 +1,10 @@
-import { Response } from 'node-fetch';
+import { AxiosResponse } from 'axios';
 
 class CoinbaseError extends Error {
   statusCode: number;
-  response: Response;
+  response: AxiosResponse;
 
-  constructor(message: string, statusCode: number, response: Response) {
+  constructor(message: string, statusCode: number, response: AxiosResponse) {
     super(message);
     this.name = 'CoinbaseError';
     this.statusCode = statusCode;
@@ -13,7 +13,7 @@ class CoinbaseError extends Error {
 }
 
 export function handleException(
-  response: Response,
+  response: AxiosResponse,
   responseText: string,
   reason: string
 ) {

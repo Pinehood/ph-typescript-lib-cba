@@ -1,7 +1,7 @@
-import fetch, { Headers, RequestInit, Response } from 'node-fetch';
-import { BASE_URL, USER_AGENT } from '../constants';
-import { token } from '../jwt-generator';
-import { RequestOptions } from './types/request-types';
+import axios, { AxiosHeaders, AxiosRequestConfig } from 'axios';
+import { BASE_URL, USER_AGENT } from './constants';
+import { token } from './jwt-generator';
+import { RequestOptions } from '../types/request';
 import { handleException } from './errors';
 
 export class RESTBase {
@@ -30,26 +30,27 @@ export class RESTBase {
     bodyParams?: Record<string, any>,
     isPublic?: boolean
   ) {
-    const headers: Headers = this.headers(httpMethod, urlPath, isPublic);
-    const requestOptions: RequestInit = {
+    const headers = this.headers(httpMethod, urlPath, isPublic);
+    const requestOptions: AxiosRequestConfig = {
       method: httpMethod,
       headers: headers,
-      body: JSON.stringify(bodyParams),
+      data: JSON.stringify(bodyParams),
+      url: urlPath,
     };
     const queryString = this.query(queryParams);
     const url = `https://${BASE_URL}${urlPath}${queryString}`;
-    return this.send(requestOptions, url);
+    return this.send(requestOptions);
   }
 
-  private async send(requestOptions: RequestInit, url: string) {
-    const response: Response = await fetch(url, requestOptions);
-    const responseText = await response.text();
+  private async send(requestOptions: AxiosRequestConfig) {
+    const response = await axios.request(requestOptions);
+    const responseText = JSON.stringify(response.data ?? {});
     handleException(response, responseText, response.statusText);
     return JSON.parse(responseText);
   }
 
   private headers(httpMethod: string, urlPath: string, isPublic?: boolean) {
-    const headers: Headers = new Headers();
+    const headers: AxiosHeaders = new AxiosHeaders();
     headers.append('Content-Type', 'application/json');
     headers.append('User-Agent', USER_AGENT);
     if (this.apiKey !== undefined && this.apiSecret !== undefined) {

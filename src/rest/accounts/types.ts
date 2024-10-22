@@ -1,4 +1,4 @@
-import { Account } from './common-types';
+import { Account } from '../types';
 
 export type GetAccountRequest = {
   accountUuid: string;

@@ -2,59 +2,64 @@ import {
   Candles,
   ContractExpiryType,
   ExpiringContractStatus,
+  Granularity,
   HistoricalMarketTrade,
   PriceBook,
   Product,
   Products,
   ProductType,
-} from './common-types';
+} from '../types';
 
-export type GetServerTimeResponse = {
-  iso?: string;
-  epochSeconds?: number;
-  epochMillis?: number;
+export type GetBestBidAskRequest = {
+  productIds?: string[];
 };
 
-export type GetPublicProductBookRequest = {
+export type GetBestBidAskResponse = {
+  pricebooks: PriceBook[];
+};
+
+export type GetProductBookRequest = {
   productId: string;
   limit?: number;
   aggregationPriceIncrement?: number;
 };
 
-export type GetPublicProductBookResponse = {
+export type GetProductBookResponse = {
   pricebook: PriceBook;
 };
 
-export type ListPublicProductsRequest = {
+export type ListProductsRequest = {
   limit?: number;
   offset?: number;
   productType?: ProductType;
   productIds?: string[];
   contractExpiryType?: ContractExpiryType;
   expiringContractStatus?: ExpiringContractStatus;
+  getTradabilityStatus?: boolean;
   getAllProducts?: boolean;
 };
 
-export type GetPublicProductRequest = {
+export type GetProductRequest = {
   productId: string;
+  getTradabilityStatus?: boolean;
 };
 
-export type GetPublicProductCandlesRequest = {
+export type GetProductCandlesRequest = {
   productId: string;
   start: string;
   end: string;
-  granularity: string;
+  granularity: Granularity;
   limit?: number;
 };
 
-export type GetPublicMarketTradesRequest = {
+export type GetMarketTradesRequest = {
   productId: string;
   limit: number;
   start?: string;
   end?: string;
 };
 
-export type GetPublicMarketTradesResponse = {
+export type GetMarketTradesResponse = {
   trades?: HistoricalMarketTrade[];
   best_bid?: string;
   best_ask?: string;

@@ -1,4 +1,4 @@
 export * from './rest';
 export * from './rest/types';
-export * from './constants';
-export * from './jwt-generator';
+export * from './rest/utils/constants';
+export * from './rest/utils/jwt-generator';

@@ -1,4 +1,4 @@
-import { RatConvertTrade, TradeIncentiveMetadata } from './common-types';
+import { RatConvertTrade, TradeIncentiveMetadata } from '../types';
 
 export type CreateConvertQuoteRequest = {
   fromAccount: string;

@@ -1,4 +1,4 @@
-import { PaymentMethod } from './common-types';
+import { PaymentMethod } from '../types';
 
 export type ListPaymentMethodsResponse = {
   paymentMethods?: PaymentMethod;
