@@ -51,11 +51,10 @@ export class RESTBase {
 
   private headers(httpMethod: string, urlPath: string, isPublic?: boolean) {
     const headers = new AxiosHeaders();
-    headers.set('Content-Type', 'application/json');
-    headers.set('User-Agent', USER_AGENT);
+    headers.setContentType('application/json');
+    headers.setUserAgent(USER_AGENT);
     if (this.apiKey !== undefined && this.apiSecret !== undefined) {
-      headers.set(
-        'Authorization',
+      headers.setAuthorization(
         `Bearer ${token(httpMethod, urlPath, this.apiKey, this.apiSecret)}`
       );
     } else if (isPublic == undefined || isPublic == false) {
