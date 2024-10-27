@@ -25,26 +25,27 @@ export class PublicAPI extends RESTBase {
   }
 
   getProductBook(
-    requestParams: GetPublicProductBookRequest
+    request: GetPublicProductBookRequest
   ): Promise<GetPublicProductBookResponse> {
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/market/product_book`,
-      queryParams: requestParams,
+      queryParams: request,
       isPublic: true,
     });
   }
 
-  listProducts(requestParams: ListPublicProductsRequest): Promise<Products> {
+  listProducts(request: ListPublicProductsRequest): Promise<Products> {
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/market/products`,
-      queryParams: requestParams,
+      queryParams: request,
       isPublic: true,
     });
   }
 
-  getProduct({ productId }: GetPublicProductRequest): Promise<Product> {
+  getProduct(request: GetPublicProductRequest): Promise<Product> {
+    const { productId } = request;
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/market/products/${productId}`,
@@ -52,26 +53,24 @@ export class PublicAPI extends RESTBase {
     });
   }
 
-  getProductCandles({
-    productId,
-    ...requestParams
-  }: GetPublicProductCandlesRequest): Promise<Candles> {
+  getProductCandles(request: GetPublicProductCandlesRequest): Promise<Candles> {
+    const { productId, ...restOfProps } = request;
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/market/products/${productId}/candles`,
-      queryParams: requestParams,
+      queryParams: restOfProps,
       isPublic: true,
     });
   }
 
-  getMarketTrades({
-    productId,
-    ...requestParams
-  }: GetPublicMarketTradesRequest): Promise<GetPublicMarketTradesResponse> {
+  getMarketTrades(
+    request: GetPublicMarketTradesRequest
+  ): Promise<GetPublicMarketTradesResponse> {
+    const { productId, ...restOfProps } = request;
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/products/${productId}/ticker`,
-      queryParams: requestParams,
+      queryParams: restOfProps,
       isPublic: true,
     });
   }

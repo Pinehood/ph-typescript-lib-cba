@@ -10,12 +10,12 @@ export class FeesAPI extends RESTBase {
   }
 
   getTransactionSummary(
-    requestParams: GetTransactionsSummaryRequest
+    request: GetTransactionsSummaryRequest
   ): Promise<GetTransactionsSummaryResponse> {
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/transaction_summary`,
-      queryParams: requestParams,
+      queryParams: request,
       isPublic: false,
     });
   }

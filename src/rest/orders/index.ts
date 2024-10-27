@@ -25,63 +25,64 @@ export class OrdersAPI extends RESTBase {
     super(key, secret);
   }
 
-  create(requestParams: CreateOrderRequest): Promise<CreateOrderResponse> {
+  create(request: CreateOrderRequest): Promise<CreateOrderResponse> {
     return this.request({
       method: 'POST',
       endpoint: `${API_PREFIX}/orders`,
-      bodyParams: requestParams,
+      bodyParams: request,
       isPublic: false,
     });
   }
 
-  cancel(requestParams: CancelOrdersRequest): Promise<CancelOrdersResponse> {
+  cancel(request: CancelOrdersRequest): Promise<CancelOrdersResponse> {
     return this.request({
       method: 'POST',
       endpoint: `${API_PREFIX}/orders/batch_cancel`,
-      bodyParams: requestParams,
+      bodyParams: request,
       isPublic: false,
     });
   }
 
-  edit(requestParams: EditOrderRequest): Promise<EditOrderResponse> {
+  edit(request: EditOrderRequest): Promise<EditOrderResponse> {
     return this.request({
       method: 'POST',
       endpoint: `${API_PREFIX}/orders/edit`,
-      bodyParams: requestParams,
+      bodyParams: request,
       isPublic: false,
     });
   }
 
   editPreview(
-    requestParams: EditOrderPreviewRequest
+    request: EditOrderPreviewRequest
   ): Promise<EditOrderPreviewResponse> {
     return this.request({
       method: 'POST',
       endpoint: `${API_PREFIX}/orders/edit_preview`,
-      bodyParams: requestParams,
+      bodyParams: request,
       isPublic: false,
     });
   }
 
-  list(requestParams: ListOrdersRequest): Promise<ListOrdersResponse> {
+  list(request: ListOrdersRequest): Promise<ListOrdersResponse> {
     return this.request({
       method: 'POST',
       endpoint: `${API_PREFIX}/orders/historical/batch`,
-      queryParams: requestParams,
+      queryParams: request,
       isPublic: false,
     });
   }
 
-  listFills(requestParams: ListFillsRequest): Promise<ListFillsResponse> {
+  listFills(request: ListFillsRequest): Promise<ListFillsResponse> {
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/orders/historical/fills`,
-      queryParams: requestParams,
+      queryParams: request,
       isPublic: false,
     });
   }
 
-  get({ orderId }: GetOrderRequest): Promise<GetOrderResponse> {
+  get(request: GetOrderRequest): Promise<GetOrderResponse> {
+    const { orderId } = request;
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/orders/historical/${orderId}`,
@@ -89,23 +90,21 @@ export class OrdersAPI extends RESTBase {
     });
   }
 
-  preview(requestParams: PreviewOrderRequest): Promise<PreviewOrderResponse> {
+  preview(request: PreviewOrderRequest): Promise<PreviewOrderResponse> {
     return this.request({
       method: 'POST',
       endpoint: `${API_PREFIX}/orders/preview`,
-      bodyParams: requestParams,
+      bodyParams: request,
       isPublic: false,
     });
   }
 
-  closePosition(
-    requestParams: ClosePositionRequest
-  ): Promise<ClosePositionResponse> {
+  closePosition(request: ClosePositionRequest): Promise<ClosePositionResponse> {
     return this.request({
       method: 'POST',
       endpoint: `${API_PREFIX}/orders/close_position`,
       queryParams: undefined,
-      bodyParams: requestParams,
+      bodyParams: request,
       isPublic: false,
     });
   }

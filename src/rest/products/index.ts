@@ -17,66 +17,61 @@ export class ProductsAPI extends RESTBase {
     super(key, secret);
   }
 
-  getBestBidAsk(
-    requestParams: GetBestBidAskRequest
-  ): Promise<GetBestBidAskResponse> {
+  getBestBidAsk(request: GetBestBidAskRequest): Promise<GetBestBidAskResponse> {
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/best_bid_ask`,
-      queryParams: requestParams,
+      queryParams: request,
       isPublic: false,
     });
   }
 
-  getBook(
-    requestParams: GetProductBookRequest
-  ): Promise<GetProductBookResponse> {
+  getBook(request: GetProductBookRequest): Promise<GetProductBookResponse> {
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/product_book`,
-      queryParams: requestParams,
+      queryParams: request,
       isPublic: false,
     });
   }
 
-  list(requestParams: ListProductsRequest): Promise<Products> {
+  list(request: ListProductsRequest): Promise<Products> {
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/products`,
-      queryParams: requestParams,
+      queryParams: request,
       isPublic: false,
     });
   }
 
-  get({ productId, ...requestParams }: GetProductRequest): Promise<Product> {
+  get(request: GetProductRequest): Promise<Product> {
+    const { productId, ...restOfRequest } = request;
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/products/${productId}`,
-      queryParams: requestParams,
+      queryParams: restOfRequest,
       isPublic: false,
     });
   }
 
-  getCandles({
-    productId,
-    ...requestParams
-  }: GetProductCandlesRequest): Promise<Candles> {
+  getCandles(request: GetProductCandlesRequest): Promise<Candles> {
+    const { productId, ...restOfRequest } = request;
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/products/${productId}/candles`,
-      queryParams: requestParams,
+      queryParams: restOfRequest,
       isPublic: false,
     });
   }
 
-  getMarketTrades({
-    productId,
-    ...requestParams
-  }: GetMarketTradesRequest): Promise<GetMarketTradesResponse> {
+  getMarketTrades(
+    request: GetMarketTradesRequest
+  ): Promise<GetMarketTradesResponse> {
+    const { productId, ...restOfRequest } = request;
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/products/${productId}/ticker`,
-      queryParams: requestParams,
+      queryParams: restOfRequest,
       isPublic: false,
     });
   }

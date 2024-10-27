@@ -20,19 +20,20 @@ export class PerpetualsAPI extends RESTBase {
   }
 
   allocate(
-    requestParams: AllocatePortfolioRequest
+    request: AllocatePortfolioRequest
   ): Promise<AllocatePortfolioResponse> {
     return this.request({
       method: 'POST',
       endpoint: `${API_PREFIX}/intx/allocate`,
-      bodyParams: requestParams,
+      bodyParams: request,
       isPublic: false,
     });
   }
 
-  getSummary({
-    portfolioUuid,
-  }: GetPerpetualsPortfolioSummaryRequest): Promise<GetPerpetualsPortfolioSummaryResponse> {
+  getSummary(
+    request: GetPerpetualsPortfolioSummaryRequest
+  ): Promise<GetPerpetualsPortfolioSummaryResponse> {
+    const { portfolioUuid } = request;
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/intx/portfolio/${portfolioUuid}`,
@@ -40,9 +41,10 @@ export class PerpetualsAPI extends RESTBase {
     });
   }
 
-  listPositions({
-    portfolioUuid,
-  }: ListPerpetualsPositionsRequest): Promise<ListPerpetualsPositionsResponse> {
+  listPositions(
+    request: ListPerpetualsPositionsRequest
+  ): Promise<ListPerpetualsPositionsResponse> {
+    const { portfolioUuid } = request;
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/intx/positions/${portfolioUuid}`,
@@ -50,10 +52,10 @@ export class PerpetualsAPI extends RESTBase {
     });
   }
 
-  getPosition({
-    portfolioUuid,
-    symbol,
-  }: GetPerpetualsPositionRequest): Promise<GetPerpetualsPositionResponse> {
+  getPosition(
+    request: GetPerpetualsPositionRequest
+  ): Promise<GetPerpetualsPositionResponse> {
+    const { portfolioUuid, symbol } = request;
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/intx/positions/${portfolioUuid}/${symbol}`,
@@ -61,9 +63,10 @@ export class PerpetualsAPI extends RESTBase {
     });
   }
 
-  getBalances({
-    portfolioUuid,
-  }: GetPortfolioBalancesRequest): Promise<GetPortfolioBalancesResponse> {
+  getBalances(
+    request: GetPortfolioBalancesRequest
+  ): Promise<GetPortfolioBalancesResponse> {
+    const { portfolioUuid } = request;
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/intx/balances/${portfolioUuid}`,
@@ -72,12 +75,12 @@ export class PerpetualsAPI extends RESTBase {
   }
 
   optInOutMultiAssetCollateral(
-    requestParams: OptInOutMultiAssetCollateralRequest
+    request: OptInOutMultiAssetCollateralRequest
   ): Promise<OptInOutMultiAssetCollateralResponse> {
     return this.request({
       method: 'POST',
       endpoint: `${API_PREFIX}/intx/multi_asset_collateral`,
-      bodyParams: requestParams,
+      bodyParams: request,
       isPublic: false,
     });
   }

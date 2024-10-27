@@ -19,52 +19,49 @@ export class PortfoliosAPI extends RESTBase {
     super(key, secret);
   }
 
-  list(requestParams: ListPortfoliosRequest): Promise<ListPortfoliosResponse> {
+  list(request: ListPortfoliosRequest): Promise<ListPortfoliosResponse> {
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/portfolios`,
-      queryParams: requestParams,
+      queryParams: request,
       isPublic: false,
     });
   }
 
-  create(
-    requestParams: CreatePortfolioRequest
-  ): Promise<CreatePortfolioResponse> {
+  create(request: CreatePortfolioRequest): Promise<CreatePortfolioResponse> {
     return this.request({
       method: 'POST',
       endpoint: `${API_PREFIX}/portfolios`,
-      bodyParams: requestParams,
+      bodyParams: request,
       isPublic: false,
     });
   }
 
   moveFunds(
-    requestParams: MovePortfolioFundsRequest
+    request: MovePortfolioFundsRequest
   ): Promise<MovePortfolioFundsResponse> {
     return this.request({
       method: 'POST',
       endpoint: `${API_PREFIX}/portfolios/move_funds`,
-      bodyParams: requestParams,
+      bodyParams: request,
       isPublic: false,
     });
   }
 
-  getBreakdown({
-    portfolioUuid,
-    ...requestParams
-  }: GetPortfolioBreakdownRequest): Promise<GetPortfolioBreakdownResponse> {
+  getBreakdown(
+    request: GetPortfolioBreakdownRequest
+  ): Promise<GetPortfolioBreakdownResponse> {
+    const { portfolioUuid, ...restOfRequest } = request;
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/portfolios/${portfolioUuid}`,
-      queryParams: requestParams,
+      queryParams: restOfRequest,
       isPublic: false,
     });
   }
 
-  delete({
-    portfolioUuid,
-  }: DeletePortfolioRequest): Promise<DeletePortfolioResponse> {
+  delete(request: DeletePortfolioRequest): Promise<DeletePortfolioResponse> {
+    const { portfolioUuid } = request;
     return this.request({
       method: 'DELETE',
       endpoint: `${API_PREFIX}/portfolios/${portfolioUuid}`,
@@ -72,14 +69,12 @@ export class PortfoliosAPI extends RESTBase {
     });
   }
 
-  edit({
-    portfolioUuid,
-    ...requestParams
-  }: EditPortfolioRequest): Promise<EditPortfolioResponse> {
+  edit(request: EditPortfolioRequest): Promise<EditPortfolioResponse> {
+    const { portfolioUuid, ...restOfRequest } = request;
     return this.request({
       method: 'PUT',
       endpoint: `${API_PREFIX}/portfolios/${portfolioUuid}`,
-      bodyParams: requestParams,
+      bodyParams: restOfRequest,
       isPublic: false,
     });
   }

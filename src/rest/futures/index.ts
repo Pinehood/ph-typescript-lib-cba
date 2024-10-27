@@ -37,23 +37,23 @@ export class FuturesAPI extends RESTBase {
   }
 
   setIntradayMarginSetting(
-    requestParams: SetIntradayMarginSettingRequest
+    request: SetIntradayMarginSettingRequest
   ): Promise<SetIntradayMarginSettingResponse> {
     return this.request({
       method: 'POST',
       endpoint: `${API_PREFIX}/cfm/intraday/margin_setting`,
-      bodyParams: requestParams,
+      bodyParams: request,
       isPublic: false,
     });
   }
 
   getCurrentMarginWindow(
-    requestParams: GetCurrentMarginWindowRequest
+    request: GetCurrentMarginWindowRequest
   ): Promise<GetCurrentMarginWindowResponse> {
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/cfm/intraday/current_margin_window`,
-      queryParams: requestParams,
+      queryParams: request,
       isPublic: false,
     });
   }
@@ -66,9 +66,10 @@ export class FuturesAPI extends RESTBase {
     });
   }
 
-  getPosition({
-    productId,
-  }: GetFuturesPositionRequest): Promise<GetFuturesPositionResponse> {
+  getPosition(
+    request: GetFuturesPositionRequest
+  ): Promise<GetFuturesPositionResponse> {
+    const { productId } = request;
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/cfm/positions/${productId}`,
@@ -77,12 +78,12 @@ export class FuturesAPI extends RESTBase {
   }
 
   scheduleSweep(
-    requestParams: ScheduleFuturesSweepRequest
+    request: ScheduleFuturesSweepRequest
   ): Promise<ScheduleFuturesSweepResponse> {
     return this.request({
       method: 'POST',
       endpoint: `${API_PREFIX}/cfm/sweeps/schedule`,
-      bodyParams: requestParams,
+      bodyParams: request,
       isPublic: false,
     });
   }

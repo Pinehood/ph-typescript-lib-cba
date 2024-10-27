@@ -11,7 +11,8 @@ export class AccountsAPI extends RESTBase {
     super(key, secret);
   }
 
-  get({ accountUuid }: GetAccountRequest): Promise<GetAccountResponse> {
+  get(request: GetAccountRequest): Promise<GetAccountResponse> {
+    const { accountUuid } = request;
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/accounts/${accountUuid}`,
@@ -19,11 +20,11 @@ export class AccountsAPI extends RESTBase {
     });
   }
 
-  list(requestParams: ListAccountsRequest): Promise<ListAccountsResponse> {
+  list(request: ListAccountsRequest): Promise<ListAccountsResponse> {
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/accounts`,
-      queryParams: requestParams,
+      queryParams: request,
       isPublic: false,
     });
   }

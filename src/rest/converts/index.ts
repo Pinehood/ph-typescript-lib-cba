@@ -14,36 +14,34 @@ export class ConvertsAPI extends RESTBase {
   }
 
   createQuote(
-    requestParams: CreateConvertQuoteRequest
+    request: CreateConvertQuoteRequest
   ): Promise<CreateConvertQuoteResponse> {
     return this.request({
       method: 'POST',
       endpoint: `${API_PREFIX}/convert/quote`,
-      bodyParams: requestParams,
+      bodyParams: request,
       isPublic: false,
     });
   }
 
-  getTrade({
-    tradeId,
-    ...requestParams
-  }: GetConvertTradeRequest): Promise<GetConvertTradeResponse> {
+  getTrade(request: GetConvertTradeRequest): Promise<GetConvertTradeResponse> {
+    const { tradeId, ...restOfRequest } = request;
     return this.request({
       method: 'GET',
       endpoint: `${API_PREFIX}/convert/trade/${tradeId}`,
-      queryParams: requestParams,
+      queryParams: restOfRequest,
       isPublic: false,
     });
   }
 
-  commitTrade({
-    tradeId,
-    ...requestParams
-  }: CommitConvertTradeRequest): Promise<CommitConvertTradeResponse> {
+  commitTrade(
+    request: CommitConvertTradeRequest
+  ): Promise<CommitConvertTradeResponse> {
+    const { tradeId, ...restOfRequest } = request;
     return this.request({
       method: 'POST',
       endpoint: `${API_PREFIX}/convert/trade/${tradeId}`,
-      bodyParams: requestParams,
+      bodyParams: restOfRequest,
       isPublic: false,
     });
   }
