@@ -23,12 +23,16 @@ export type CreateOrderRequest = {
 
 export type CreateOrderResponse = {
   success: boolean;
-  failure_reason?: Record<string, any>;
-  order_id?: string;
-  response?:
-    | { success_response: Record<string, any> }
-    | { error_response: Record<string, any> };
+  success_response: {
+    order_id: string;
+    product_id: string;
+    side: string;
+    client_order_id: string;
+    attached_order_id: string;
+  };
   order_configuration?: OrderConfiguration;
+  error_response: Record<string, any>;
+  failure_reason?: Record<string, any>;
 };
 
 export type CancelOrdersRequest = {
