@@ -23,15 +23,9 @@ export type CreateOrderRequest = {
 
 export type CreateOrderResponse = {
   success: boolean;
-  success_response: {
-    order_id: string;
-    product_id: string;
-    side: string;
-    client_order_id: string;
-    attached_order_id: string;
-  };
+  success_response: Partial<Order> & { [key: string]: any };
   order_configuration?: OrderConfiguration;
-  error_response: Record<string, any>;
+  error_response: Partial<Order> & { [key: string]: any };
   failure_reason?: Record<string, any>;
 };
 
