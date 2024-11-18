@@ -364,10 +364,12 @@ export type PortfolioBreakdown = {
   futures_positions?: Record<string, any>[];
 };
 
+export type PriceLevel = { price: string; size: string };
+
 export type PriceBook = {
   product_id: string;
-  bids: Record<string, any>[];
-  asks: Record<string, any>[];
+  bids: PriceLevel[];
+  asks: PriceLevel[];
   time?: Record<string, any>;
 };
 
