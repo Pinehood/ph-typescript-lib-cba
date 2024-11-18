@@ -23,6 +23,10 @@ export type GetProductBookRequest = {
 
 export type GetProductBookResponse = {
   pricebook: PriceBook;
+  last: string;
+  mid_market: string;
+  spread_bps: string;
+  spread_absolute: string;
 };
 
 export type ListProductsRequest = {

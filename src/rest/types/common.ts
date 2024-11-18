@@ -436,6 +436,7 @@ export type HistoricalMarketTrade = {
   size?: string;
   time?: string;
   side?: OrderSide;
+  exchange?: string;
 };
 
 export type PortfolioBalance = {

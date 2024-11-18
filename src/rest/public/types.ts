@@ -20,6 +20,10 @@ export type GetPublicProductBookRequest = {
 
 export type GetPublicProductBookResponse = {
   pricebook: PriceBook;
+  last: string;
+  mid_market: string;
+  spread_bps: string;
+  spread_absolute: string;
 };
 
 export type ListPublicProductsRequest = {
