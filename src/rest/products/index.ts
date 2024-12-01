@@ -13,8 +13,12 @@ import {
 } from './types';
 
 export class ProductsAPI extends RESTBase {
-  constructor(key?: string | undefined, secret?: string | undefined) {
-    super(key, secret);
+  constructor(
+    key?: string | undefined,
+    secret?: string | undefined,
+    sandbox?: boolean | undefined
+  ) {
+    super(key, secret, sandbox);
   }
 
   getBestBidAsk(request: GetBestBidAskRequest): Promise<GetBestBidAskResponse> {

@@ -16,8 +16,12 @@ import {
 } from './types';
 
 export class FuturesAPI extends RESTBase {
-  constructor(key?: string | undefined, secret?: string | undefined) {
-    super(key, secret);
+  constructor(
+    key?: string | undefined,
+    secret?: string | undefined,
+    sandbox?: boolean | undefined
+  ) {
+    super(key, secret, sandbox);
   }
 
   getBalanceSummary(): Promise<GetFuturesBalanceSummaryResponse> {

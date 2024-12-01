@@ -7,8 +7,12 @@ import {
 } from './types';
 
 export class AccountsAPI extends RESTBase {
-  constructor(key?: string | undefined, secret?: string | undefined) {
-    super(key, secret);
+  constructor(
+    key?: string | undefined,
+    secret?: string | undefined,
+    sandbox?: boolean | undefined
+  ) {
+    super(key, secret, sandbox);
   }
 
   get(request: GetAccountRequest): Promise<GetAccountResponse> {

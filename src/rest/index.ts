@@ -22,17 +22,21 @@ export class RESTClient extends RESTBase {
   public readonly products: ProductsAPI;
   public readonly public: PublicAPI;
 
-  constructor(key?: string | undefined, secret?: string | undefined) {
+  constructor(
+    key?: string | undefined,
+    secret?: string | undefined,
+    sandbox?: boolean | undefined
+  ) {
     super(key, secret);
-    this.accounts = new AccountsAPI(key, secret);
-    this.converts = new ConvertsAPI(key, secret);
-    this.fees = new FeesAPI(key, secret);
-    this.futures = new FuturesAPI(key, secret);
-    this.orders = new OrdersAPI(key, secret);
-    this.payments = new PaymentsAPI(key, secret);
-    this.perpetuals = new PerpetualsAPI(key, secret);
-    this.portfolios = new PortfoliosAPI(key, secret);
-    this.products = new ProductsAPI(key, secret);
+    this.accounts = new AccountsAPI(key, secret, sandbox);
+    this.converts = new ConvertsAPI(key, secret, sandbox);
+    this.fees = new FeesAPI(key, secret, sandbox);
+    this.futures = new FuturesAPI(key, secret, sandbox);
+    this.orders = new OrdersAPI(key, secret, sandbox);
+    this.payments = new PaymentsAPI(key, secret, sandbox);
+    this.perpetuals = new PerpetualsAPI(key, secret, sandbox);
+    this.portfolios = new PortfoliosAPI(key, secret, sandbox);
+    this.products = new ProductsAPI(key, secret, sandbox);
     this.public = new PublicAPI();
   }
 }

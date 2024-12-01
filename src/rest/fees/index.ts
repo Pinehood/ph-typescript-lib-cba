@@ -5,8 +5,12 @@ import {
 } from './types';
 
 export class FeesAPI extends RESTBase {
-  constructor(key?: string | undefined, secret?: string | undefined) {
-    super(key, secret);
+  constructor(
+    key?: string | undefined,
+    secret?: string | undefined,
+    sandbox?: boolean | undefined
+  ) {
+    super(key, secret, sandbox);
   }
 
   getTransactionSummary(

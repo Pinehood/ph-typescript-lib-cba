@@ -15,8 +15,12 @@ import {
 } from './types';
 
 export class PortfoliosAPI extends RESTBase {
-  constructor(key?: string | undefined, secret?: string | undefined) {
-    super(key, secret);
+  constructor(
+    key?: string | undefined,
+    secret?: string | undefined,
+    sandbox?: boolean | undefined
+  ) {
+    super(key, secret, sandbox);
   }
 
   list(request: ListPortfoliosRequest): Promise<ListPortfoliosResponse> {

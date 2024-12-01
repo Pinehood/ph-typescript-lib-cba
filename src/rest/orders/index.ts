@@ -21,8 +21,12 @@ import {
 } from './types';
 
 export class OrdersAPI extends RESTBase {
-  constructor(key?: string | undefined, secret?: string | undefined) {
-    super(key, secret);
+  constructor(
+    key?: string | undefined,
+    secret?: string | undefined,
+    sandbox?: boolean | undefined
+  ) {
+    super(key, secret, sandbox);
   }
 
   create(request: CreateOrderRequest): Promise<CreateOrderResponse> {
