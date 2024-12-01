@@ -8,7 +8,7 @@ import {
   OrderSide,
   ProductType,
   SortBy,
-} from '../types';
+} from '../../types';
 
 export type CreateOrderRequest = {
   clientOrderId: string;

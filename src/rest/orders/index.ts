@@ -1,4 +1,4 @@
-import { API_PREFIX, RESTBase } from '../utils';
+import { API_PREFIX, RESTBase } from '../../utils';
 import {
   CancelOrdersRequest,
   CancelOrdersResponse,

@@ -4,7 +4,7 @@ import {
   HistoricalMarketTrade,
   PriceBook,
   ProductType,
-} from '../types';
+} from '../../types';
 
 export type GetServerTimeResponse = {
   iso?: string;

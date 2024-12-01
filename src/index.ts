@@ -19,5 +19,5 @@ export * from './rest/products';
 export * from './rest/products/types';
 export * from './rest/public';
 export * from './rest/public/types';
-export * from './rest/types';
-export * from './rest/utils';
+export * from './types';
+export * from './utils';

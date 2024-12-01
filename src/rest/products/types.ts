@@ -5,7 +5,7 @@ import {
   HistoricalMarketTrade,
   PriceBook,
   ProductType,
-} from '../types';
+} from '../../types';
 
 export type GetBestBidAskRequest = {
   productIds?: string[];

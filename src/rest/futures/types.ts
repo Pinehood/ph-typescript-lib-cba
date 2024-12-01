@@ -3,7 +3,7 @@ import {
   FCMPosition,
   FCMSweep,
   IntradayMarginSetting,
-} from '../types';
+} from '../../types';
 
 export type GetFuturesBalanceSummaryResponse = {
   balance_summary?: FCMBalanceSummary;

@@ -1,14 +1,15 @@
 import * as jwt from 'jsonwebtoken';
 import * as crypto from 'crypto';
-import { BASE_URL, ALGORITHM, JWT_ISSUER } from './constants';
+import { BASE_URL, ALGORITHM, JWT_ISSUER, BASE_SANDBOX_URL } from './constants';
 
 export function token(
   method: string,
   path: string,
   key: string,
-  secret: string
+  secret: string,
+  sandbox: boolean
 ): string {
-  const uri = `${method} ${BASE_URL}${path}`;
+  const uri = `${method} ${sandbox ? BASE_SANDBOX_URL : BASE_URL}${path}`;
   const payload = {
     iss: JWT_ISSUER,
     nbf: Math.floor(Date.now() / 1000),

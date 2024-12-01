@@ -1,8 +1,8 @@
 import axios, { AxiosHeaders, AxiosRequestConfig } from 'axios';
 import { BASE_URL, USER_AGENT } from './constants';
 import { token } from './token';
-import { RequestOptions } from '../types/request';
 import { handleException } from './errors';
+import { RequestOptions } from '../types/request';
 
 export class RESTBase {
   private readonly apiKey: string | undefined;
@@ -28,9 +28,10 @@ export class RESTBase {
     urlPath: string,
     queryParams?: Record<string, any>,
     bodyParams?: Record<string, any>,
-    isPublic?: boolean
+    isPublic?: boolean,
+    isSandbox?: boolean
   ) {
-    const headers = this.headers(httpMethod, urlPath, isPublic);
+    const headers = this.headers(httpMethod, urlPath, isPublic, isSandbox);
     const queryString = this.query(queryParams);
     const url = `https://${BASE_URL}${urlPath}${queryString}`;
     const requestOptions: AxiosRequestConfig = {
@@ -49,13 +50,18 @@ export class RESTBase {
     return JSON.parse(responseText);
   }
 
-  private headers(httpMethod: string, urlPath: string, isPublic?: boolean) {
+  private headers(
+    httpMethod: string,
+    urlPath: string,
+    isPublic?: boolean,
+    isSandbox?: boolean
+  ) {
     const headers = new AxiosHeaders();
     headers.setContentType('application/json');
     headers.setUserAgent(USER_AGENT);
     if (this.apiKey !== undefined && this.apiSecret !== undefined) {
       headers.setAuthorization(
-        `Bearer ${token(httpMethod, urlPath, this.apiKey, this.apiSecret)}`
+        `Bearer ${token(httpMethod, urlPath, this.apiKey, this.apiSecret, isSandbox || false)}`
       );
     } else if (isPublic == undefined || isPublic == false) {
       throw new Error(

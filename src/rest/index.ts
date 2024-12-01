@@ -1,4 +1,4 @@
-import { RESTBase } from './utils';
+import { RESTBase } from '../utils';
 import { AccountsAPI } from './accounts';
 import { ConvertsAPI } from './converts';
 import { FeesAPI } from './fees';

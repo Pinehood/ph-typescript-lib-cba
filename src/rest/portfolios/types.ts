@@ -1,4 +1,4 @@
-import { Portfolio, PortfolioBreakdown, PortfolioType } from '../types';
+import { Portfolio, PortfolioBreakdown, PortfolioType } from '../../types';
 
 export type ListPortfoliosRequest = {
   portfolioType?: PortfolioType;

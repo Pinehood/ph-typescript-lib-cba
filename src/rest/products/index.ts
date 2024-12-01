@@ -1,5 +1,5 @@
-import { API_PREFIX, RESTBase } from '../utils';
-import { Candles, Product, Products } from '../types';
+import { API_PREFIX, RESTBase } from '../../utils';
+import { Candles, Product, Products } from '../../types';
 import {
   GetBestBidAskRequest,
   GetBestBidAskResponse,
