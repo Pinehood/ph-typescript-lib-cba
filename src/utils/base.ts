@@ -1,5 +1,5 @@
 import axios, { AxiosHeaders, AxiosRequestConfig } from 'axios';
-import { BASE_URL, USER_AGENT } from './constants';
+import { BASE_SANDBOX_URL, BASE_URL, USER_AGENT } from './constants';
 import { token } from './token';
 import { handleException } from './errors';
 import { RequestOptions } from '../types/request';
@@ -7,10 +7,12 @@ import { RequestOptions } from '../types/request';
 export class RESTBase {
   private readonly apiKey: string | undefined;
   private readonly apiSecret: string | undefined;
+  private readonly isSandbox: boolean | undefined;
 
-  constructor(key?: string, secret?: string) {
+  constructor(key?: string, secret?: string, sandbox?: boolean) {
     this.apiKey = key;
     this.apiSecret = secret;
+    this.isSandbox = sandbox || false;
   }
 
   request(options: RequestOptions): Promise<any> {
@@ -20,7 +22,14 @@ export class RESTBase {
     if (bodyParams !== undefined) {
       bodyParams = bodyParams ? this.filter(bodyParams) : {};
     }
-    return this.prepare(method, endpoint, queryParams, bodyParams, isPublic);
+    return this.prepare(
+      method,
+      endpoint,
+      queryParams,
+      bodyParams,
+      isPublic,
+      this.isSandbox
+    );
   }
 
   private prepare(
@@ -33,7 +42,7 @@ export class RESTBase {
   ) {
     const headers = this.headers(httpMethod, urlPath, isPublic, isSandbox);
     const queryString = this.query(queryParams);
-    const url = `https://${BASE_URL}${urlPath}${queryString}`;
+    const url = `https://${isSandbox ? BASE_SANDBOX_URL : BASE_URL}${urlPath}${queryString}`;
     const requestOptions: AxiosRequestConfig = {
       method: httpMethod,
       headers: headers,
