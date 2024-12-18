@@ -1,4 +1,3 @@
-import axios, { AxiosHeaders, AxiosRequestConfig } from 'axios';
 import { BASE_SANDBOX_URL, BASE_URL, USER_AGENT } from './constants';
 import { token } from './token';
 import { handleException } from './errors';
@@ -43,7 +42,7 @@ export class RESTBase {
     const headers = this.headers(httpMethod, urlPath, isPublic, isSandbox);
     const queryString = this.query(queryParams);
     const url = `https://${isSandbox ? BASE_SANDBOX_URL : BASE_URL}${urlPath}${queryString}`;
-    const requestOptions: AxiosRequestConfig = {
+    const requestOptions = {
       method: httpMethod,
       headers: headers,
       data: JSON.stringify(bodyParams),
@@ -52,9 +51,9 @@ export class RESTBase {
     return this.send(requestOptions);
   }
 
-  private async send(requestOptions: AxiosRequestConfig) {
-    const response = await axios.request(requestOptions);
-    const responseText = JSON.stringify(response.data ?? {});
+  private async send(requestOptions: any) {
+    const response = await fetch(requestOptions.url, requestOptions);
+    const responseText = await response.text();
     handleException(response, responseText, response.statusText);
     return JSON.parse(responseText);
   }
@@ -65,11 +64,12 @@ export class RESTBase {
     isPublic?: boolean,
     isSandbox?: boolean
   ) {
-    const headers = new AxiosHeaders();
-    headers.setContentType('application/json');
-    headers.setUserAgent(USER_AGENT);
+    const headers = new Headers();
+    headers.set('Content-Type', 'application/json');
+    headers.set('User-Agent', USER_AGENT);
     if (this.apiKey !== undefined && this.apiSecret !== undefined) {
-      headers.setAuthorization(
+      headers.set(
+        'Authorization',
         `Bearer ${token(httpMethod, urlPath, this.apiKey, this.apiSecret, isSandbox || false)}`
       );
     } else if (isPublic == undefined || isPublic == false) {

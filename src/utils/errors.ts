@@ -1,10 +1,8 @@
-import { AxiosResponse } from 'axios';
-
 class CoinbaseError extends Error {
   statusCode: number;
-  response: AxiosResponse;
+  response: Response;
 
-  constructor(message: string, statusCode: number, response: AxiosResponse) {
+  constructor(message: string, statusCode: number, response: Response) {
     super(message);
     this.name = 'CoinbaseError';
     this.statusCode = statusCode;
@@ -13,7 +11,7 @@ class CoinbaseError extends Error {
 }
 
 export function handleException(
-  response: AxiosResponse,
+  response: Response,
   responseText: string,
   reason: string
 ) {
