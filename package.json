@@ -1,6 +1,6 @@
 {
   "name": "ph-typescript-lib-cba",
-  "version": "1.0.33",
+  "version": "1.0.34",
   "scripts": {
     "lint": "eslint \"./src/**/*.ts\"",
     "prettier": "npx prettier --write \"src/**/*.ts\"",
