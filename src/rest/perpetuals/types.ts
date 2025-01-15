@@ -7,7 +7,7 @@ import {
 } from '../../types';
 
 export type AllocatePortfolioRequest = {
-  portfolioUuid: string;
+  portfolio_uuid: string;
   symbol: string;
   amount: string;
   currency: string;
@@ -16,7 +16,7 @@ export type AllocatePortfolioRequest = {
 export type AllocatePortfolioResponse = Record<string, never>;
 
 export type GetPerpetualsPortfolioSummaryRequest = {
-  portfolioUuid: string;
+  portfolio_uuid: string;
 };
 
 export type GetPerpetualsPortfolioSummaryResponse = {
@@ -25,7 +25,7 @@ export type GetPerpetualsPortfolioSummaryResponse = {
 };
 
 export type ListPerpetualsPositionsRequest = {
-  portfolioUuid: string;
+  portfolio_uuid: string;
 };
 
 export type ListPerpetualsPositionsResponse = {
@@ -34,7 +34,7 @@ export type ListPerpetualsPositionsResponse = {
 };
 
 export type GetPerpetualsPositionRequest = {
-  portfolioUuid: string;
+  portfolio_uuid: string;
   symbol: string;
 };
 
@@ -43,7 +43,7 @@ export type GetPerpetualsPositionResponse = {
 };
 
 export type GetPortfolioBalancesRequest = {
-  portfolioUuid: string;
+  portfolio_uuid: string;
 };
 
 export type GetPortfolioBalancesResponse = {
@@ -51,8 +51,8 @@ export type GetPortfolioBalancesResponse = {
 };
 
 export type OptInOutMultiAssetCollateralRequest = {
-  portfolioUuid?: string;
-  multiAssetCollateralEnabled?: boolean;
+  portfolio_uuid?: string;
+  multi_asset_collateral_enabled?: boolean;
 };
 
 export type OptInOutMultiAssetCollateralResponse = {

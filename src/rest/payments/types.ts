@@ -1,13 +1,13 @@
 import { PaymentMethod } from '../../types';
 
 export type ListPaymentMethodsResponse = {
-  paymentMethods?: PaymentMethod;
+  payment_methods?: PaymentMethod;
 };
 
 export type GetPaymentMethodRequest = {
-  paymentMethodId: string;
+  payment_method_id: string;
 };
 
 export type GetPaymentMethodResponse = {
-  paymentMethod?: PaymentMethod;
+  payment_method?: PaymentMethod;
 };

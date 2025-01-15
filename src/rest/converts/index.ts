@@ -29,10 +29,10 @@ export class ConvertsAPI extends RESTBase {
   }
 
   getTrade(request: GetConvertTradeRequest): Promise<GetConvertTradeResponse> {
-    const { tradeId, ...restOfRequest } = request;
+    const { trade_id, ...restOfRequest } = request;
     return this.request({
       method: 'GET',
-      endpoint: `${API_PREFIX}/convert/trade/${tradeId}`,
+      endpoint: `${API_PREFIX}/convert/trade/${trade_id}`,
       queryParams: restOfRequest,
       isPublic: false,
     });
@@ -41,10 +41,10 @@ export class ConvertsAPI extends RESTBase {
   commitTrade(
     request: CommitConvertTradeRequest
   ): Promise<CommitConvertTradeResponse> {
-    const { tradeId, ...restOfRequest } = request;
+    const { trade_id, ...restOfRequest } = request;
     return this.request({
       method: 'POST',
-      endpoint: `${API_PREFIX}/convert/trade/${tradeId}`,
+      endpoint: `${API_PREFIX}/convert/trade/${trade_id}`,
       bodyParams: restOfRequest,
       isPublic: false,
     });

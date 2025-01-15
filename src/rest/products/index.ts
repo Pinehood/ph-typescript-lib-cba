@@ -49,20 +49,20 @@ export class ProductsAPI extends RESTBase {
   }
 
   get(request: GetProductRequest): Promise<Product> {
-    const { productId, ...restOfRequest } = request;
+    const { product_id, ...restOfRequest } = request;
     return this.request({
       method: 'GET',
-      endpoint: `${API_PREFIX}/products/${productId}`,
+      endpoint: `${API_PREFIX}/products/${product_id}`,
       queryParams: restOfRequest,
       isPublic: false,
     });
   }
 
   getCandles(request: GetProductCandlesRequest): Promise<Candles> {
-    const { productId, ...restOfRequest } = request;
+    const { product_id, ...restOfRequest } = request;
     return this.request({
       method: 'GET',
-      endpoint: `${API_PREFIX}/products/${productId}/candles`,
+      endpoint: `${API_PREFIX}/products/${product_id}/candles`,
       queryParams: restOfRequest,
       isPublic: false,
     });
@@ -71,10 +71,10 @@ export class ProductsAPI extends RESTBase {
   getMarketTrades(
     request: GetMarketTradesRequest
   ): Promise<GetMarketTradesResponse> {
-    const { productId, ...restOfRequest } = request;
+    const { product_id, ...restOfRequest } = request;
     return this.request({
       method: 'GET',
-      endpoint: `${API_PREFIX}/products/${productId}/ticker`,
+      endpoint: `${API_PREFIX}/products/${product_id}/ticker`,
       queryParams: restOfRequest,
       isPublic: false,
     });

@@ -37,10 +37,10 @@ export class PerpetualsAPI extends RESTBase {
   getSummary(
     request: GetPerpetualsPortfolioSummaryRequest
   ): Promise<GetPerpetualsPortfolioSummaryResponse> {
-    const { portfolioUuid } = request;
+    const { portfolio_uuid } = request;
     return this.request({
       method: 'GET',
-      endpoint: `${API_PREFIX}/intx/portfolio/${portfolioUuid}`,
+      endpoint: `${API_PREFIX}/intx/portfolio/${portfolio_uuid}`,
       isPublic: false,
     });
   }
@@ -48,10 +48,10 @@ export class PerpetualsAPI extends RESTBase {
   listPositions(
     request: ListPerpetualsPositionsRequest
   ): Promise<ListPerpetualsPositionsResponse> {
-    const { portfolioUuid } = request;
+    const { portfolio_uuid } = request;
     return this.request({
       method: 'GET',
-      endpoint: `${API_PREFIX}/intx/positions/${portfolioUuid}`,
+      endpoint: `${API_PREFIX}/intx/positions/${portfolio_uuid}`,
       isPublic: false,
     });
   }
@@ -59,10 +59,10 @@ export class PerpetualsAPI extends RESTBase {
   getPosition(
     request: GetPerpetualsPositionRequest
   ): Promise<GetPerpetualsPositionResponse> {
-    const { portfolioUuid, symbol } = request;
+    const { portfolio_uuid, symbol } = request;
     return this.request({
       method: 'GET',
-      endpoint: `${API_PREFIX}/intx/positions/${portfolioUuid}/${symbol}`,
+      endpoint: `${API_PREFIX}/intx/positions/${portfolio_uuid}/${symbol}`,
       isPublic: false,
     });
   }
@@ -70,10 +70,10 @@ export class PerpetualsAPI extends RESTBase {
   getBalances(
     request: GetPortfolioBalancesRequest
   ): Promise<GetPortfolioBalancesResponse> {
-    const { portfolioUuid } = request;
+    const { portfolio_uuid } = request;
     return this.request({
       method: 'GET',
-      endpoint: `${API_PREFIX}/intx/balances/${portfolioUuid}`,
+      endpoint: `${API_PREFIX}/intx/balances/${portfolio_uuid}`,
       isPublic: false,
     });
   }

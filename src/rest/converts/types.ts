@@ -1,10 +1,10 @@
 import { RatConvertTrade, TradeIncentiveMetadata } from '../../types';
 
 export type CreateConvertQuoteRequest = {
-  fromAccount: string;
-  toAccount: string;
+  from_account: string;
+  to_account: string;
   amount: string;
-  tradeIncentiveMetadata?: TradeIncentiveMetadata;
+  trade_incentive_metadata?: TradeIncentiveMetadata;
 };
 
 export type CreateConvertQuoteResponse = {
@@ -12,9 +12,9 @@ export type CreateConvertQuoteResponse = {
 };
 
 export type GetConvertTradeRequest = {
-  tradeId: string;
-  fromAccount: string;
-  toAccount: string;
+  trade_id: string;
+  from_account: string;
+  to_account: string;
 };
 
 export type GetConvertTradeResponse = {
@@ -22,9 +22,9 @@ export type GetConvertTradeResponse = {
 };
 
 export type CommitConvertTradeRequest = {
-  tradeId: string;
-  fromAccount: string;
-  toAccount: string;
+  trade_id: string;
+  from_account: string;
+  to_account: string;
 };
 
 export type CommitConvertTradeResponse = {

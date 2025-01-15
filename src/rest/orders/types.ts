@@ -11,14 +11,14 @@ import {
 } from '../../types';
 
 export type CreateOrderRequest = {
-  clientOrderId: string;
-  productId: string;
+  client_order_id: string;
+  product_id: string;
   side: OrderSide;
-  orderConfiguration: OrderConfiguration;
-  selfTradePreventionId?: string;
+  order_configuration: OrderConfiguration;
+  self_trade_prevention_id?: string;
   leverage?: string;
-  marginType?: MarginType;
-  retailPortfolioId?: string;
+  margin_type?: MarginType;
+  retail_portfolio_id?: string;
 };
 
 export type CreateOrderResponse = {
@@ -30,7 +30,7 @@ export type CreateOrderResponse = {
 };
 
 export type CancelOrdersRequest = {
-  orderIds: string[];
+  order_ids: string[];
 };
 
 export type CancelOrdersResponse = {
@@ -38,7 +38,7 @@ export type CancelOrdersResponse = {
 };
 
 export type EditOrderRequest = {
-  orderId: string;
+  order_id: string;
   price?: string;
   size?: string;
 };
@@ -52,7 +52,7 @@ export type EditOrderResponse = {
 };
 
 export type EditOrderPreviewRequest = {
-  orderId: string;
+  order_id: string;
   price?: string;
   size?: string;
 };
@@ -69,22 +69,22 @@ export type EditOrderPreviewResponse = {
 };
 
 export type ListOrdersRequest = {
-  orderIds?: string[];
-  productIds?: string[];
-  orderStatus?: string[];
+  order_ids?: string[];
+  product_ids?: string[];
+  order_status?: string[];
   limit?: number;
-  startDate?: string;
-  endDate?: string;
-  orderType?: string;
-  orderSide?: OrderSide;
+  start_date?: string;
+  end_date?: string;
+  order_type?: string;
+  order_side?: OrderSide;
   cursor?: string;
-  productType?: ProductType;
-  orderPlacementSource?: OrderPlacementSource;
-  contractExpiryType?: ContractExpiryType;
-  assetFilters?: string[];
-  retailPortfolioId?: string;
-  timeInForces?: string;
-  sortBy?: SortBy;
+  product_type?: ProductType;
+  order_placement_source?: OrderPlacementSource;
+  contract_expiry_type?: ContractExpiryType;
+  asset_filters?: string[];
+  retail_portfolio_id?: string;
+  time_in_forces?: string;
+  sort_by?: SortBy;
 };
 
 export type ListOrdersResponse = {
@@ -95,15 +95,15 @@ export type ListOrdersResponse = {
 };
 
 export type ListFillsRequest = {
-  orderIds?: string[];
-  tradeIds?: string[];
-  productIds?: string[];
-  startSequenceTimestamp?: string;
-  endSequenceTimestamp?: string;
-  retailPortfolioId?: string;
+  order_ids?: string[];
+  trade_ids?: string[];
+  product_ids?: string[];
+  start_sequence_timestamp?: string;
+  end_sequence_timestamp?: string;
+  retail_portfolio_id?: string;
   limit?: number;
   cursor?: string;
-  sortBy?: SortBy;
+  sort_by?: SortBy;
 };
 
 export type ListFillsResponse = {
@@ -112,7 +112,7 @@ export type ListFillsResponse = {
 };
 
 export type GetOrderRequest = {
-  orderId: string;
+  order_id: string;
 };
 
 export type GetOrderResponse = {
@@ -120,12 +120,12 @@ export type GetOrderResponse = {
 };
 
 export type PreviewOrderRequest = {
-  productId: string;
+  product_id: string;
   side: OrderSide;
-  orderConfiguration: OrderConfiguration;
+  order_configuration: OrderConfiguration;
   leverage?: string;
-  marginType?: MarginType;
-  retailPortfolioId?: string;
+  margin_type?: MarginType;
+  retail_portfolio_id?: string;
 };
 
 export type PreviewOrderResponse = {
@@ -151,8 +151,8 @@ export type PreviewOrderResponse = {
 };
 
 export type ClosePositionRequest = {
-  clientOrderId: string;
-  productId: string;
+  client_order_id: string;
+  product_id: string;
   size?: string;
 };
 

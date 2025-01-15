@@ -55,29 +55,29 @@ export class PortfoliosAPI extends RESTBase {
   getBreakdown(
     request: GetPortfolioBreakdownRequest
   ): Promise<GetPortfolioBreakdownResponse> {
-    const { portfolioUuid, ...restOfRequest } = request;
+    const { portfolio_uuid, ...restOfRequest } = request;
     return this.request({
       method: 'GET',
-      endpoint: `${API_PREFIX}/portfolios/${portfolioUuid}`,
+      endpoint: `${API_PREFIX}/portfolios/${portfolio_uuid}`,
       queryParams: restOfRequest,
       isPublic: false,
     });
   }
 
   delete(request: DeletePortfolioRequest): Promise<DeletePortfolioResponse> {
-    const { portfolioUuid } = request;
+    const { portfolio_uuid } = request;
     return this.request({
       method: 'DELETE',
-      endpoint: `${API_PREFIX}/portfolios/${portfolioUuid}`,
+      endpoint: `${API_PREFIX}/portfolios/${portfolio_uuid}`,
       isPublic: false,
     });
   }
 
   edit(request: EditPortfolioRequest): Promise<EditPortfolioResponse> {
-    const { portfolioUuid, ...restOfRequest } = request;
+    const { portfolio_uuid, ...restOfRequest } = request;
     return this.request({
       method: 'PUT',
-      endpoint: `${API_PREFIX}/portfolios/${portfolioUuid}`,
+      endpoint: `${API_PREFIX}/portfolios/${portfolio_uuid}`,
       bodyParams: restOfRequest,
       isPublic: false,
     });

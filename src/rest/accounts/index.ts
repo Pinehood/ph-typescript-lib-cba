@@ -16,10 +16,10 @@ export class AccountsAPI extends RESTBase {
   }
 
   get(request: GetAccountRequest): Promise<GetAccountResponse> {
-    const { accountUuid } = request;
+    const { account_uuid } = request;
     return this.request({
       method: 'GET',
-      endpoint: `${API_PREFIX}/accounts/${accountUuid}`,
+      endpoint: `${API_PREFIX}/accounts/${account_uuid}`,
       isPublic: false,
     });
   }

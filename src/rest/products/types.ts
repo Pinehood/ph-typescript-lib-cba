@@ -8,7 +8,7 @@ import {
 } from '../../types';
 
 export type GetBestBidAskRequest = {
-  productIds?: string[];
+  product_ids?: string[];
 };
 
 export type GetBestBidAskResponse = {
@@ -16,9 +16,9 @@ export type GetBestBidAskResponse = {
 };
 
 export type GetProductBookRequest = {
-  productId: string;
+  product_id: string;
   limit?: number;
-  aggregationPriceIncrement?: number;
+  aggregation_price_increment?: number;
 };
 
 export type GetProductBookResponse = {
@@ -32,21 +32,21 @@ export type GetProductBookResponse = {
 export type ListProductsRequest = {
   limit?: number;
   offset?: number;
-  productType?: ProductType;
-  productIds?: string[];
-  contractExpiryType?: ContractExpiryType;
-  expiringContractStatus?: ExpiringContractStatus;
-  getTradabilityStatus?: boolean;
-  getAllProducts?: boolean;
+  product_type?: ProductType;
+  product_ids?: string[];
+  contract_expiry_type?: ContractExpiryType;
+  expiring_contract_status?: ExpiringContractStatus;
+  get_tradability_status?: boolean;
+  get_all_products?: boolean;
 };
 
 export type GetProductRequest = {
-  productId: string;
-  getTradabilityStatus?: boolean;
+  product_id: string;
+  get_tradability_status?: boolean;
 };
 
 export type GetProductCandlesRequest = {
-  productId: string;
+  product_id: string;
   start: string;
   end: string;
   granularity: Granularity;
@@ -54,7 +54,7 @@ export type GetProductCandlesRequest = {
 };
 
 export type GetMarketTradesRequest = {
-  productId: string;
+  product_id: string;
   limit: number;
   start?: string;
   end?: string;

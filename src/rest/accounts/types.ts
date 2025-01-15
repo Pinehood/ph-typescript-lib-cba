@@ -1,7 +1,7 @@
 import { Account } from '../../types';
 
 export type GetAccountRequest = {
-  accountUuid: string;
+  account_uuid: string;
 };
 
 export type GetAccountResponse = {
@@ -11,7 +11,7 @@ export type GetAccountResponse = {
 export type ListAccountsRequest = {
   limit?: number;
   cursor?: string;
-  retailPortfolioId?: string;
+  retail_portfolio_id?: string;
 };
 
 export type ListAccountsResponse = {

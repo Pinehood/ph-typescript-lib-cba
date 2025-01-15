@@ -20,7 +20,7 @@ export type SetIntradayMarginSettingRequest = {
 export type SetIntradayMarginSettingResponse = Record<string, never>;
 
 export type GetCurrentMarginWindowRequest = {
-  marginProfileType?: string;
+  margin_profile_type?: string;
 };
 
 export type GetCurrentMarginWindowResponse = {
@@ -34,7 +34,7 @@ export type ListFuturesPositionsResponse = {
 };
 
 export type GetFuturesPositionRequest = {
-  productId: string;
+  product_id: string;
 };
 
 export type GetFuturesPositionResponse = {
@@ -42,7 +42,7 @@ export type GetFuturesPositionResponse = {
 };
 
 export type ScheduleFuturesSweepRequest = {
-  usdAmount?: string;
+  usd_amount?: string;
 };
 
 export type ScheduleFuturesSweepResponse = {

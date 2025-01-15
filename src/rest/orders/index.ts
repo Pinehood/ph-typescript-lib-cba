@@ -86,10 +86,10 @@ export class OrdersAPI extends RESTBase {
   }
 
   get(request: GetOrderRequest): Promise<GetOrderResponse> {
-    const { orderId } = request;
+    const { order_id } = request;
     return this.request({
       method: 'GET',
-      endpoint: `${API_PREFIX}/orders/historical/${orderId}`,
+      endpoint: `${API_PREFIX}/orders/historical/${order_id}`,
       isPublic: false,
     });
   }

@@ -1,9 +1,9 @@
 import { ContractExpiryType, ProductType, ProductVenue } from '../../types';
 
 export type GetTransactionsSummaryRequest = {
-  productType?: ProductType;
-  contractExpiryType?: ContractExpiryType;
-  productVenue?: ProductVenue;
+  product_type?: ProductType;
+  contract_expiry_type?: ContractExpiryType;
+  product_venue?: ProductVenue;
 };
 
 export type GetTransactionsSummaryResponse = {

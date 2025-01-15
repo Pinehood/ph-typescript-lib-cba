@@ -111,54 +111,54 @@ export type OrderConfiguration =
 export type MarketMarketIoc = { quote_size: string } | { base_size: string };
 
 export type SorLimitIoc = {
-  baseSize: string;
-  limitPrice: string;
+  base_size: string;
+  limit_price: string;
 };
 
 export type LimitLimitGtc = {
-  baseSize: string;
-  limitPrice: string;
-  postOnly: boolean;
+  base_size: string;
+  limit_price: string;
+  post_only: boolean;
 };
 
 export type LimitLimitGtd = {
-  baseSize: string;
-  limitPrice: string;
-  endTime: string;
-  postOnly: boolean;
+  base_size: string;
+  limit_price: string;
+  end_time: string;
+  post_only: boolean;
 };
 
 export type LimitLimitFok = {
-  baseSize: string;
-  limitPrice: string;
+  base_size: string;
+  limit_price: string;
 };
 
 export type StopLimitStopLimitGtc = {
-  baseSize: string;
-  limitPrice: string;
-  stopPrice: string;
-  stopDirection: StopDirection;
+  base_size: string;
+  limit_price: string;
+  stop_price: string;
+  stop_direction: StopDirection;
 };
 
 export type StopLimitStopLimitGtd = {
-  baseSize: string;
-  limitPrice: string;
-  stopPrice: string;
-  endTime: string;
-  stopDirection: StopDirection;
+  base_size: string;
+  limit_price: string;
+  stop_price: string;
+  end_time: string;
+  stop_direction: StopDirection;
 };
 
 export type TriggerBracketGtc = {
-  baseSize: string;
-  limitPrice: string;
-  stopTriggerPrice: string;
+  base_size: string;
+  limit_price: string;
+  stop_trigger_price: string;
 };
 
 export type TriggerBracketGtd = {
-  baseSize: string;
-  limitPrice: string;
-  stopTriggerPrice: string;
-  endTime: string;
+  base_size: string;
+  limit_price: string;
+  stop_triggerPrice: string;
+  end_time: string;
 };
 
 export type RatConvertTrade = {

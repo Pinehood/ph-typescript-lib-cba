@@ -73,10 +73,10 @@ export class FuturesAPI extends RESTBase {
   getPosition(
     request: GetFuturesPositionRequest
   ): Promise<GetFuturesPositionResponse> {
-    const { productId } = request;
+    const { product_id } = request;
     return this.request({
       method: 'GET',
-      endpoint: `${API_PREFIX}/cfm/positions/${productId}`,
+      endpoint: `${API_PREFIX}/cfm/positions/${product_id}`,
       isPublic: false,
     });
   }

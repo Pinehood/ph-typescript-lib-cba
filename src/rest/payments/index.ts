@@ -23,10 +23,10 @@ export class PaymentsAPI extends RESTBase {
   }
 
   get(request: GetPaymentMethodRequest): Promise<GetPaymentMethodResponse> {
-    const { paymentMethodId } = request;
+    const { payment_method_id } = request;
     return this.request({
       method: 'GET',
-      endpoint: `${API_PREFIX}/payment_methods/${paymentMethodId}`,
+      endpoint: `${API_PREFIX}/payment_methods/${payment_method_id}`,
       isPublic: false,
     });
   }

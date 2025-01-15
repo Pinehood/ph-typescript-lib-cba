@@ -1,7 +1,7 @@
 import { Portfolio, PortfolioBreakdown, PortfolioType } from '../../types';
 
 export type ListPortfoliosRequest = {
-  portfolioType?: PortfolioType;
+  portfolio_type?: PortfolioType;
 };
 
 export type ListPortfoliosResponse = {
@@ -18,8 +18,8 @@ export type CreatePortfolioResponse = {
 
 export type MovePortfolioFundsRequest = {
   funds: Record<string, any>;
-  sourcePortfolioUuid: string;
-  targetPortfolioUuid: string;
+  source_portfolio_uuid: string;
+  target_portfolio_uuid: string;
 };
 
 export type MovePortfolioFundsResponse = {
@@ -28,7 +28,7 @@ export type MovePortfolioFundsResponse = {
 };
 
 export type GetPortfolioBreakdownRequest = {
-  portfolioUuid: string;
+  portfolio_uuid: string;
   currency?: string;
 };
 
@@ -37,13 +37,13 @@ export type GetPortfolioBreakdownResponse = {
 };
 
 export type DeletePortfolioRequest = {
-  portfolioUuid: string;
+  portfolio_uuid: string;
 };
 
 export type DeletePortfolioResponse = Record<string, never>;
 
 export type EditPortfolioRequest = {
-  portfolioUuid: string;
+  portfolio_uuid: string;
   name: string;
 };
 

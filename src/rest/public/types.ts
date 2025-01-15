@@ -8,14 +8,14 @@ import {
 
 export type GetServerTimeResponse = {
   iso?: string;
-  epochSeconds?: number;
-  epochMillis?: number;
+  epoch_seconds?: number;
+  epoch_millis?: number;
 };
 
 export type GetPublicProductBookRequest = {
-  productId: string;
+  product_id: string;
   limit?: number;
-  aggregationPriceIncrement?: number;
+  aggregation_price_increment?: number;
 };
 
 export type GetPublicProductBookResponse = {
@@ -29,19 +29,19 @@ export type GetPublicProductBookResponse = {
 export type ListPublicProductsRequest = {
   limit?: number;
   offset?: number;
-  productType?: ProductType;
-  productIds?: string[];
-  contractExpiryType?: ContractExpiryType;
-  expiringContractStatus?: ExpiringContractStatus;
-  getAllProducts?: boolean;
+  product_type?: ProductType;
+  product_ids?: string[];
+  contract_expiry_type?: ContractExpiryType;
+  expiring_contract_status?: ExpiringContractStatus;
+  get_all_products?: boolean;
 };
 
 export type GetPublicProductRequest = {
-  productId: string;
+  product_id: string;
 };
 
 export type GetPublicProductCandlesRequest = {
-  productId: string;
+  product_id: string;
   start: string;
   end: string;
   granularity: string;
@@ -49,7 +49,7 @@ export type GetPublicProductCandlesRequest = {
 };
 
 export type GetPublicMarketTradesRequest = {
-  productId: string;
+  product_id: string;
   limit: number;
   start?: string;
   end?: string;
