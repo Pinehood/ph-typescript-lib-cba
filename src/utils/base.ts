@@ -51,21 +51,20 @@ export class RESTBase {
     const url = `https://${isSandbox ? BASE_SANDBOX_URL : BASE_URL}${urlPath}${queryString}`;
     const requestOptions = {
       method: httpMethod,
-      headers: headers,
       data: JSON.stringify(bodyParams),
       url,
     };
     this.logger?.(
-      `Request '${httpMethod} ${url}' = ${JSON.stringify(requestOptions)}`
+      `[${Date.now()}] Request '${httpMethod} ${urlPath}'\n${JSON.stringify(requestOptions)}`
     );
-    return this.send(requestOptions);
+    return this.send({ ...requestOptions, headers });
   }
 
   private async send(requestOptions: any) {
     const response = await fetch(requestOptions.url, requestOptions);
     const responseText = await response.text();
     this.logger?.(
-      `Response '${requestOptions.method} ${requestOptions.url}' = ${responseText}`
+      `[${Date.now()}] Response for previous '${requestOptions.method}' request\n${responseText}`
     );
     handleException(response, responseText, response.statusText);
     return JSON.parse(responseText);
