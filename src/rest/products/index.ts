@@ -16,9 +16,10 @@ export class ProductsAPI extends RESTBase {
   constructor(
     key?: string | undefined,
     secret?: string | undefined,
-    sandbox?: boolean | undefined
+    sandbox?: boolean | undefined,
+    logger?: (message: string) => void
   ) {
-    super(key, secret, sandbox);
+    super(key, secret, sandbox, logger);
   }
 
   getBestBidAsk(request: GetBestBidAskRequest): Promise<GetBestBidAskResponse> {

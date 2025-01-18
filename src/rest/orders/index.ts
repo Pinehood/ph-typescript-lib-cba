@@ -24,9 +24,10 @@ export class OrdersAPI extends RESTBase {
   constructor(
     key?: string | undefined,
     secret?: string | undefined,
-    sandbox?: boolean | undefined
+    sandbox?: boolean | undefined,
+    logger?: (message: string) => void
   ) {
-    super(key, secret, sandbox);
+    super(key, secret, sandbox, logger);
   }
 
   create(request: CreateOrderRequest): Promise<CreateOrderResponse> {

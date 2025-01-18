@@ -12,8 +12,13 @@ import {
 } from './types';
 
 export class PublicAPI extends RESTBase {
-  constructor(key?: string | undefined, secret?: string | undefined) {
-    super(key, secret);
+  constructor(
+    key?: string | undefined,
+    secret?: string | undefined,
+    sandbox?: boolean | undefined,
+    logger?: (message: string) => void
+  ) {
+    super(key, secret, sandbox, logger);
   }
 
   getServerTime(): Promise<GetServerTimeResponse> {

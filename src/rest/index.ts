@@ -25,18 +25,19 @@ export class RESTClient extends RESTBase {
   constructor(
     key?: string | undefined,
     secret?: string | undefined,
-    sandbox?: boolean | undefined
+    sandbox?: boolean | undefined,
+    logger?: (message: string) => void
   ) {
-    super(key, secret);
-    this.accounts = new AccountsAPI(key, secret, sandbox);
-    this.converts = new ConvertsAPI(key, secret, sandbox);
-    this.fees = new FeesAPI(key, secret, sandbox);
-    this.futures = new FuturesAPI(key, secret, sandbox);
-    this.orders = new OrdersAPI(key, secret, sandbox);
-    this.payments = new PaymentsAPI(key, secret, sandbox);
-    this.perpetuals = new PerpetualsAPI(key, secret, sandbox);
-    this.portfolios = new PortfoliosAPI(key, secret, sandbox);
-    this.products = new ProductsAPI(key, secret, sandbox);
-    this.public = new PublicAPI();
+    super(key, secret, sandbox, logger);
+    this.accounts = new AccountsAPI(key, secret, sandbox, logger);
+    this.converts = new ConvertsAPI(key, secret, sandbox, logger);
+    this.fees = new FeesAPI(key, secret, sandbox, logger);
+    this.futures = new FuturesAPI(key, secret, sandbox, logger);
+    this.orders = new OrdersAPI(key, secret, sandbox, logger);
+    this.payments = new PaymentsAPI(key, secret, sandbox, logger);
+    this.perpetuals = new PerpetualsAPI(key, secret, sandbox, logger);
+    this.portfolios = new PortfoliosAPI(key, secret, sandbox, logger);
+    this.products = new ProductsAPI(key, secret, sandbox, logger);
+    this.public = new PublicAPI(undefined, undefined, sandbox, logger);
   }
 }

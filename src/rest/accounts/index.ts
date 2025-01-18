@@ -10,9 +10,10 @@ export class AccountsAPI extends RESTBase {
   constructor(
     key?: string | undefined,
     secret?: string | undefined,
-    sandbox?: boolean | undefined
+    sandbox?: boolean | undefined,
+    logger?: (message: string) => void
   ) {
-    super(key, secret, sandbox);
+    super(key, secret, sandbox, logger);
   }
 
   get(request: GetAccountRequest): Promise<GetAccountResponse> {

@@ -9,9 +9,10 @@ export class PaymentsAPI extends RESTBase {
   constructor(
     key?: string | undefined,
     secret?: string | undefined,
-    sandbox?: boolean | undefined
+    sandbox?: boolean | undefined,
+    logger?: (message: string) => void
   ) {
-    super(key, secret, sandbox);
+    super(key, secret, sandbox, logger);
   }
 
   list(): Promise<ListPaymentMethodsResponse> {

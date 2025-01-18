@@ -7,11 +7,18 @@ export class RESTBase {
   private readonly apiKey: string | undefined;
   private readonly apiSecret: string | undefined;
   private readonly isSandbox: boolean | undefined;
+  private readonly logger: (message: string) => void | undefined;
 
-  constructor(key?: string, secret?: string, sandbox?: boolean) {
+  constructor(
+    key?: string,
+    secret?: string,
+    sandbox?: boolean,
+    logger?: (message: string) => void
+  ) {
     this.apiKey = key;
     this.apiSecret = secret;
     this.isSandbox = sandbox || false;
+    this.logger = logger;
   }
 
   request(options: RequestOptions): Promise<any> {
@@ -48,12 +55,18 @@ export class RESTBase {
       data: JSON.stringify(bodyParams),
       url,
     };
+    this.logger?.(
+      `Request '${httpMethod} ${url}' = ${JSON.stringify(requestOptions)}`
+    );
     return this.send(requestOptions);
   }
 
   private async send(requestOptions: any) {
     const response = await fetch(requestOptions.url, requestOptions);
     const responseText = await response.text();
+    this.logger?.(
+      `Response '${requestOptions.method} ${requestOptions.url}' = ${responseText}`
+    );
     handleException(response, responseText, response.statusText);
     return JSON.parse(responseText);
   }
