@@ -51,7 +51,7 @@ export class RESTBase {
     const url = `https://${isSandbox ? BASE_SANDBOX_URL : BASE_URL}${urlPath}${queryString}`;
     const requestOptions = {
       method: httpMethod,
-      data: JSON.stringify(bodyParams),
+      body: JSON.stringify(bodyParams),
       url,
     };
     this.logger?.(
@@ -76,14 +76,13 @@ export class RESTBase {
     isPublic?: boolean,
     isSandbox?: boolean
   ) {
-    const headers = new Headers();
-    headers.set('Content-Type', 'application/json');
-    headers.set('User-Agent', USER_AGENT);
+    const headers: HeadersInit = {
+      'Content-Type': 'application/json',
+      'User-Agent': USER_AGENT,
+    };
     if (this.apiKey !== undefined && this.apiSecret !== undefined) {
-      headers.set(
-        'Authorization',
-        `Bearer ${token(httpMethod, urlPath, this.apiKey, this.apiSecret, isSandbox || false)}`
-      );
+      headers['Authorization'] =
+        `Bearer ${token(httpMethod, urlPath, this.apiKey, this.apiSecret, isSandbox || false)}`;
     } else if (isPublic == undefined || isPublic == false) {
       throw new Error(
         'Attempting to access authenticated endpoint with invalid API_KEY or API_SECRET.'
